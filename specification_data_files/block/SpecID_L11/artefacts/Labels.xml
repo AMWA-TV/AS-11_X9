@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LabelsRegister xmlns="http://www.smpte-ra.org/schemas/400/2012">
+  <Entries>
+    <Entry>
+      <Register>Labels</Register>
+      <NamespaceName>http://www.smpte-ra.org/reg/400/2012/13/1/amwa/rules</NamespaceName>
+      <Symbol>Blocks_FF_11_WIP</Symbol>
+      <UL>urn:smpte:ul:060e2b34.04010101.0d010801.030b0000</UL>
+      <Kind>LEAF</Kind>
+      <Name>Blocks File Format 11 WIP</Name>
+      <Definition>Blocks File Format 11 (Work in Progress)</Definition>
+      <DefiningDocument>AMWA Block URL - TBC</DefiningDocument>
+      <IsDeprecated>false</IsDeprecated>
+    </Entry>
+  </Entries>
+</LabelsRegister>

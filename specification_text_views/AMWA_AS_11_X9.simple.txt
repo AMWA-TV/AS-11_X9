@@ -1,0 +1,666 @@
+# **[Work In Progress]** AS-11 X9 (MXF Program Contribution - NABA DPP HD (AVC))
+
+_This file is one rendering / view of this AMWA Specification and is a part of the Specification repository. Visit the AMWA [web page for this Specification](http://amwa.tv/projects/AS-11-X9.shtml) which has information about revisions and current development._
+
+
+# AS-11: Media Contribution File Formats
+
+The AMWA AS-11 Specifications define constrained media file formats for the delivery of finished media assets to a broadcaster or publisher. Each Specification is developed for a particular business purpose.
+
+
+# Purpose of the AS-11 X9 Specification
+
+## Aims
+
+This Specification aims to define a file format for the delivery of finished HD TV Programmes (AVC) to [North American Broadcasters Association](http://www.nabanet.com/) (NABA) broadcasters. It aims to define:
+
+* a vendor-neutral and broadcaster-neutral package, using open technologies for delivery of finished programming from program producers and program distributors to broadcast stations
+* a package that is sufficiently simple so as to limit the scope for interoperability problems
+* a self-contained & play-out ready package
+
+## Some notes on practical use
+
+* The content may be delivered at the broadcast bit-rate, picture format and aspect ratio, or it may be transcoded at the broadcast station to the bit-rates and formats required for particular broadcast channels. Similar transcoding may be applied to audio and captions; additionally, specific audio and caption tracks may be selected for different broadcast channels.
+* The content may be pre-packaged for broadcast without further changes or it may be segmented for ease of insertion or replacement of interstitials.
+* There may be more than one package per programme.
+* The package may contain some pre and post roll content not for transmission.
+
+
+# Understanding the Specification Blocks Tree
+
+This Specification is formed of "Blocks" that naturally form a "tree". A rendering / view of this tree is shown below and is explained here.
+
+## Entities Summary
+The Specification-writing framework used to produce this Specification has several different types of component / entity. In summary:
+
+* Each Specification is composed of a single Top-Level **Block (B)**
+* Blocks are defined by containing **Artefacts (A)** or linking directly to other Blocks
+* Artefacts often refer to **Terms (T)** and **References (R)** as well as Blocks
+* Blocks are sometimes described by **Notes (N)**
+
+Each entity is identified by a unique URL.
+
+Some of the letters in brackets above are used in the tree view to identify the type of each entity.
+
+## Conformance
+
+An implementation complies with a Block if it complies with all of the Blocks / Artefacts from which it is constructed. "Informative" statements do not have to be complied with (details of "informative" statements are given below).
+
+* Compliance with some Blocks is not mandatory. Such Blocks are marked with an alternative "conformance" state (such as "optional" or "recommended").
+* The name / title of an entity is considered "informative", as is its "description" (if present).
+* "Note" entities are considered "informative".
+* Prose Artefacts are written as statements of fact. An implementation complies with one of these Artefacts if the stated fact is True for the implementation.
+* Some Artefacts are "data files" such as SMPTE Metadata Registers XML files or XML Schema files. Some of these may be partially rendered below. An implementation must always fully comply with these data files.
+
+_Note that an Artefact does not always make sense on its own: all of the Artefacts contained within a Block need to be read (in order) to understand the Block fully and correctly._
+
+## Parameter Blocks
+
+There are two special types of Block which allow the value of one Block to be set by another Block:
+
+* **Parameter Key Block (K)** -- this is a Block whose value must be set elsewhere in the Specification (it effectively defines a "variable" or an "argument")
+* **Parameter Value Block (V)** -- this is a Block which sets the value of a specific Parameter Key Block (K)
+
+
+
+# The Specification Blocks Tree
+
+[B] File Format with Parameter Values
+    [B] File Format with Parameter Keys
+        Conformance: mandatory
+        [B] Core MXF constraints
+            Conformance: mandatory
+            [B] MXF File Format
+                Conformance: mandatory
+                [A] The file conforms to <SMPTE ST 377-1:2011>.
+                [N] Implementation Notes
+                    [A] Section 5.2.1 of <SMPTE ST 377-1:2011> sets out a non-exhaustive list of changes from <SMPTE ST 377:2004>.
+            [B] Operational pattern 1a
+                Conformance: mandatory
+                [A] The file conforms to <SMPTE ST 378:2004>.
+                [N] Implementation Notes
+                    [A] The file must be labelled as OP1a in the Operational Pattern property of all Partition Packs and the Preface Set, as required by <SMPTE ST 377-1:2011> in Section 7.1 and Annex A, respectively.
+            [B] Closed Complete Header
+                Conformance: mandatory
+                [A] The <Header Partition> is "Closed" and "Complete".
+                [N] Implementation Notes
+                    [A] Byte 15 of the Header Partition Pack Key must be set to 04h and all Header Metadata must have correct values. Hence 'Distinguished Values' cannot be used for 'Best Effort' properties. See Section 6.2.3 of SMPTE ST 377-1:2011 for a full explanation.
+            [B] RIP present
+                Conformance: mandatory
+                [A] The file has a <Random Index Pack>.
+            [B] KAG size of 1
+                Conformance: mandatory
+                [A] Every <Partition> in the file uses a <KLV Alignment Grid> of 1.
+            [B] Generic Container
+                Conformance: mandatory
+                [A] The file uses the <Generic Container>.
+            [B] Internal Essence
+                Conformance: mandatory
+                [A] The <Generic Container> is internal to the file.
+            [B] Strict Frame Wrapping
+                Conformance: mandatory
+                [A] The <Generic Container> uses <Frame Wrapping>.
+                [A] If the <Generic Container> contains <Picture Essence> then the related <Edit Unit> duration is equal to the duration of a video frame of the <Picture Essence>.
+                [N] Implementation Notes
+                    [A] For example, this means that if the <Picture Essence> is field-encoded then each <Edit Unit> contains the data assosiated with both of the video fields for a video frame.
+            [B] One-to-one Track mapping
+                Conformance: mandatory
+                [A] Each <Essence Track> in the <Top-Level File Package> is referenced by exactly one <Essence Track> in the <Material Package>.
+                [N] No division/combination of Audio Channels between Sound Tracks
+                    [A] This prohibits:
+                        
+                        * the mapping of audio channels from a multi-channel Sound Track in a Source Package to single-channel Sound Tracks in the Material Package
+                        * the mapping of audio channels from single-channel Sound Tracks in a Source Package to multi-channel Sound Tracks in the Material Package
+                        
+                        which is specified in Annex E of SMPTE ST 382:2007.
+        [B] Header Metadata KLV Fill
+            Conformance: recommended
+            [A] When first created, the file includes a <KLV Fill> item of at least 4 MB in total length following the <Header Metadata>.
+            [N] Implementation Notes
+                [A] The "total length" is of the entire item and includes the length of the Key and Length fields.
+                    
+                    The extra space afforded by the KLV Fill allows Header Metadata to be edited and added to without rewriting the entire file.
+            [N] Definition of megabyte
+                [A] The unit symbol "MB" refers to a megabyte, which is 1 000 000 bytes.
+        [B] MXF Indexing and Partitioning
+            Conformance: mandatory
+            [A] The file is in accordance with either of: <MXF Indexing and Partitioning strategy for VBE Essence> or <MXF Indexing and Partitioning strategy for CBE Essence>.
+                [B] MXF Indexing and Partitioning strategy for VBE Essence
+                    [B] Segment the Essence Container
+                        Conformance: mandatory
+                        [A] The <Essence Container> is segmented into <Partition>s after every X minutes of <Essence> where X is between one and ten inclusive.
+                        [N] Essence partitioning
+                            [A] # Explanation of Essence Segmenting and Partitions
+                                
+                                Refer to SMPTE ST 377-1:2011 Section 6.2.1 for the "Partition Rules Overview"
+                                
+                                # Small segments
+                                
+                                There could be small segments of Essence under this regime. This would occur if, for example:
+                                
+                                * There is less than one minute of Essence in total. In this case there is a single Essence segment and this Essence segment is short (less than one minute).
+                                * There is 30.5 minutes of Essence and Essence is being segmented every 10 minutes. In this case the final segment is only 30 seconds long.
+                    [B] Index Each Essence Container Segment
+                        Conformance: mandatory
+                        [A] Each <Essence Container> segment is indexed by <Index Table Segment>(s) that occur after it but before the next <Essence Container> segment.
+                        [A] These <Index Table Segment>(s) index every <Edit Unit> of every <Essence Element> in the <Essence Container> segment.
+                        [N] Indexing and Partitions
+                            [A] # Index Table Segment details
+                                
+                                The stated constraints mean that in each Index Table Segment a "Delta Entry Array" will be required. Additionally, if there is at least one <VBE> <Essence Element> in the <Essence Container> then an "Index Entry Array" could be required (the need for this will depend on, for example, whether <KLV Fill> padding has been used).
+                                
+                                # Partitions
+                                
+                                This Block allows a number of options regarding which Partition the Index Table Segments are located in. For example, they could be in their own dedicated Partition or in the same Partition as the next Essence Container segment (because in a Partition Index Table Segments always come before an Essence Container segment). The Index Table Segments will not necessarily be in the Partition that immediately follows the Essence Partition: there could be other Partitions in between (such as a Generic Stream Partition).
+                                
+                                # Index Table Repetition
+                                
+                                This Block places no constraint on Index Table Repetition. For example, a complete Index Table could additionally be included somewhere in the file if required.
+                    [N] Application to CBE Essence
+                        [A] While these constraints are designed for use with Varible Bytes per Element (VBE) Essence, it is possible to apply them to Constant Bytes per Element (CBE) Essence. There are more efficient ways to deal with CBE Essence, however.
+                [B] MXF Indexing and Partitioning strategy for CBE Essence
+                    [B] Index precedes Essence
+                        Conformance: mandatory
+                        [A] The file contains a complete <Index Table> before the <Essence>.
+                    [B] Index all Essence
+                        Conformance: mandatory
+                        [A] The <Index Table> indexes every <Edit Unit> of every <Essence Element> in the file.
+                    [B] Single Essence Partition
+                        Conformance: mandatory
+                        [A] The <Generic Container> is entirely contained in exactly one <Partition>.
+                    [N] Indexing and Partitions
+                        [A] It's generally considered good MXF practice to have one 'thing' per Partition, so you'd have separate Partitions for Header Metadata, Essence, and Index Tables. This isn't a requirement but following best practice is encouraged.
+                            
+                            The Index Table could be placed in the Header Partition, its own Body Partition or in a Body Partition with the Essence. Indeed it could be distributed across all three of these locations. Decoders need to be able to cope with all of these posibilities.
+        [B] AVC mapped with ST 381-3
+            Conformance: mandatory
+            [B] One Picture Track
+                Conformance: mandatory
+                [A] The <Material Package> contains exactly one <Picture Track>.
+            [B] AVC Byte Stream Format Picture Essence
+                Conformance: mandatory
+                [A] The <Picture Essence> is <AVC> and uses the <AVC Byte Stream Format>.
+            [B] ST 381-3 mapping
+                Conformance: mandatory
+                [A] The <Picture Essence> is mapped to the file as specified in <SMPTE ST 381-3:2013>.
+                [A] The value of Byte 15 of the "Essence Container" label is 60h.
+                [A] The <Picture Essence Descriptor> used is the {CDCIDescriptor}.
+                [N] Use of the AVC Sub Descriptor
+                    [A] <SMPTE ST 381-3:2013> defines the AVC Sub Descriptor and states that it "should" be used. This Block places no additional constraints on the use of the AVC Sub Descriptor. Therefore, as far as this Block is concerned its use is regarded as optional but recommended. However, note that <SMPTE ST 381-3:2013> does mandate how the values of the AVC Sub Descriptor are populated -- for certain AVC streams it would not be possible to fulfil these requirements and so in such cases there is no choice but to omit the AVC Sub Descriptor.
+                [N] AVC has no external dependencies
+                    [A] Everything to be displayed during the Material Package Picture Track needs to be decodable without references to external dependencies. For example, this means that:
+                        
+                        * The required SPS and PPS will need to be present at an appropriate point / points in the wrapped AVC.
+                        * For inter-frame coded material <Pre-Charge> and <Roll-Out> could be required.
+                [N] Picture Element Length
+                    [A] ST 381-3:2011 states:
+                        
+                        > The length field of the KLV coded Element shall be 4 bytes BER long-form encoded (i.e. 83h.xx.yy.zz) for Frame wrapping.
+                        
+                        4 bytes BER long-form encoded length is limited to 16 MiB (FF.FF.FF). This might become restrictive at the maximum datarates allowed by AVC at Level 5.
+            [K] Picture Essence Constraints
+                Conformance: mandatory
+                Associated Parameter Value: "Picture Essence Constraints" (http://vm-1274-user.virt.ch.bbc.co.uk/as/block/param_link_14/)
+                [A] Specifies further constraints on the "Picture Essence" and its mapping to the MXF file.
+        [B] Multichannel, 24-bit, 48 kHz, uncompressed PCM, mapped with ST 382
+            Conformance: mandatory
+            [B] One Soundfield Group per Sound Track
+                Conformance: mandatory
+                [A] Each <Sound Track> represents all of the <Audio Channel>s for exactly one <Soundfield Group>.
+            [B] Uncompressed 24-bit PCM audio at 48 kHz
+                Conformance: mandatory
+                [A] For each <Audio Channel> the <Sound Essence> is "uncompressed PCM audio data" per <SMPTE ST 382:2007>, sampled at 48 kHz with 24 bits per sample.
+                [N] Implementation Notes
+                    [A] As per Section 6 of <SMPTE ST 382:2007> samples are stored as little-endian integers.
+            [B] Constrained ST 382 Wave PCM mapping
+                Conformance: mandatory
+                [A] The <Sound Essence> is mapped to the file as "Wave Audio Essence" using the method described by <SMPTE ST 382:2007>.
+                [A] In the {WAVEPCMDescriptor} the (ordinarily optional) "ElectrospatialFormulation" property is not present.
+                [A] In the {WAVEPCMDescriptor} the (ordinarily optional) "ChannelAssignment" property is present.
+                [A] In the {WAVEPCMDescriptor} the value of the "ChannelAssignment" property is the same for all <Sound Track>s.
+                [N] Implementation Notes
+                    [A] This prohibits the use of the "AES3 Audio Essence Descriptor" defined in <SMPTE ST 382:2007>.
+            [B] Audio Layout
+                Conformance: mandatory
+                [A] An <Audio Layout Mode> is used with the properties set as specified by <Audio Layout Mode 0> or one of the <Audio Layout Mode>s specified by <Extra Audio Layout Modes>.
+                    [B] Audio Layout Mode
+                        [A] The value of <Channel Assignment Label> is a SMPTE Universal Label that is used as the value of the "ChannelAssignment" property in the {WAVEPCMDescriptor}.
+                        [A] If <MCA Labeling Present> is "true" then <Constrained Multichannel Audio Labeling Framework> is used. Otherwise the Multichannel Audio Labeling Framework specified in <SMPTE ST 377-4:2012> is not used.
+                            [B] Constrained Multichannel Audio Labeling Framework
+                                [A] The file uses the Multichannel Audio Labeling Framework specified in <SMPTE ST 377-4:2012>.
+                                [A] There is exactly one <AudioChannelLabelSubDescriptor> for each <Audio Channel>. This <AudioChannelLabelSubDescriptor> is strongly referenced by the "SubDescriptors" property of the <Generic Sound Essence Descriptor> of the <Sound Track> that contains the <Audio Channel>.
+                                [A] There is exactly one <SoundfieldGroupLabelSubDescriptor> for each <Soundfield Group>. This <SoundfieldGroupLabelSubDescriptor> is strongly referenced by the "SubDescriptors" property of the <Generic Sound Essence Descriptor> of a <Sound Track> in the <Soundfield Group>.
+                                [A] There is one or more <GroupOfSoundfieldGroupsLabelSubDescriptor>(s) for each <Soundfield Group>. Each of these <GroupOfSoundfieldGroupsLabelSubDescriptor>s is strongly referenced by the "SubDescriptors" property of the <Generic Sound Essence Descriptor> of a <Sound Track> in the <Soundfield Group>.
+                                [A] Each <AudioChannelLabelSubDescriptor> references exactly one <SoundfieldGroupLabelSubDescriptor>.
+                                [A] Each <SoundfieldGroupLabelSubDescriptor> references all of the <GroupOfSoundfieldGroupsLabelSubDescriptor>(s) for the <Soundfield Group> it relates to.
+                                [A] In each <AudioChannelLabelSubDescriptor> the following (ordinarily optional) properties are present: "MCA Tag Name", "MCA Channel ID".
+                                [A] In each <AudioChannelLabelSubDescriptor> the following (ordinarily optional) properties are not present: "RFC 5646 Spoken Language".
+                                [A] In each <SoundfieldGroupLabelSubDescriptor> the following (ordinarily optional) properties are present: "MCA Tag Name", "RFC 5646 Spoken Language".
+                                [A] In each <SoundfieldGroupLabelSubDescriptor> the following (ordinarily optional) properties are not present: "MCA Channel ID".
+                                [A] In each <GroupOfSoundfieldGroupsLabelSubDescriptor> the following (ordinarily optional) properties are present: "MCA Tag Name".
+                                [A] In each <GroupOfSoundfieldGroupsLabelSubDescriptor> the following (ordinarily optional) properties are not present: "MCA Channel ID", "RFC 5646 Spoken Language".
+                                [N] Implementation Notes
+                                    [A] # Distribution and Repetition of SubDescriptors
+                                        
+                                        <SoundfieldGroupLabelSubDescriptor>s and <GroupOfSoundfieldGroupsLabelSubDescriptor>s could all be on one <Sound Track> or distributed. Hence, even the <GroupOfSoundfieldGroupsLabelSubDescriptor>s might not be on the same <Sound Track>.
+                                        
+                                        If several <Soundfield Group>s reference a single <Group of Soundfield Groups> then there will be more than one <GroupOfSoundfieldGroupsLabelSubDescriptor> for that <Group of Soundfield Groups>. That is, it is repeated for each <Soundfield Group> that references it.
+                                        
+                                        
+                                        # Type of RFC5646SpokenLanguage property
+                                        
+                                        The value of this property is encoded as a US-ASCII string with one byte per character.
+                                        
+                                        Details:
+                                        
+                                        * The `RFC5646SpokenLanguage` property of the {MCALabelSubDescriptor} is defined in SMPTE ST 377-4:2012 as having the type "ISO-8String". This type is undefined.
+                                        
+                                        * However, the entry for `RFC5646SpokenLanguage` in the SMPTE Elements Register correctly lists the type as "ISO7", which refers to "ISO/IEC 646:1991, Information technology -- ISO 7-bit coded character set for information interchange.". That is the same character repertoire referenced by IETF RFC 5646.
+                                        
+                        [A] The value of <Default Audio Layout> defines any static properties of <Audio Channel>s and <Sound Track>s in the file.
+                    [B] Audio Layout Mode 0
+                        [A] <Channel Assignment Label> is <ConstrainedMultichannelAudioLabelingFramework(Label)>.
+                            [B] ConstrainedMultichannelAudioLabelingFramework(Label)
+                                [A] http://vm-1274-user.virt.ch.bbc.co.uk/as/block/CA_L0/artefacts/Labels.xml
+                                [N] SMPTE Registers Node: SoundChannelLabeling
+                                    [A] http://vm-1274-user.virt.ch.bbc.co.uk/as/note/SoundChannelLabeling/artefacts/Labels.xml
+                        [A] <MCA Labeling Present> is "true".
+                        [A] <Default Audio Layout> is not set (no assumptions can be made about audio layout).
+                    [K] Extra Audio Layout Modes
+                        Associated Parameter Value: "Extra Audio Layout Modes" (http://vm-1274-user.virt.ch.bbc.co.uk/as/block/param_link_16/)
+                [A] If <Constrained Multichannel Audio Labeling Framework> is used then any device or system that reads, writes or otherwise processes the file supports <Labels for use in Multichannel Audio Labeling Framework>.
+                    [B] Constrained Multichannel Audio Labeling Framework
+                        [A] The file uses the Multichannel Audio Labeling Framework specified in <SMPTE ST 377-4:2012>.
+                        [A] There is exactly one <AudioChannelLabelSubDescriptor> for each <Audio Channel>. This <AudioChannelLabelSubDescriptor> is strongly referenced by the "SubDescriptors" property of the <Generic Sound Essence Descriptor> of the <Sound Track> that contains the <Audio Channel>.
+                        [A] There is exactly one <SoundfieldGroupLabelSubDescriptor> for each <Soundfield Group>. This <SoundfieldGroupLabelSubDescriptor> is strongly referenced by the "SubDescriptors" property of the <Generic Sound Essence Descriptor> of a <Sound Track> in the <Soundfield Group>.
+                        [A] There is one or more <GroupOfSoundfieldGroupsLabelSubDescriptor>(s) for each <Soundfield Group>. Each of these <GroupOfSoundfieldGroupsLabelSubDescriptor>s is strongly referenced by the "SubDescriptors" property of the <Generic Sound Essence Descriptor> of a <Sound Track> in the <Soundfield Group>.
+                        [A] Each <AudioChannelLabelSubDescriptor> references exactly one <SoundfieldGroupLabelSubDescriptor>.
+                        [A] Each <SoundfieldGroupLabelSubDescriptor> references all of the <GroupOfSoundfieldGroupsLabelSubDescriptor>(s) for the <Soundfield Group> it relates to.
+                        [A] In each <AudioChannelLabelSubDescriptor> the following (ordinarily optional) properties are present: "MCA Tag Name", "MCA Channel ID".
+                        [A] In each <AudioChannelLabelSubDescriptor> the following (ordinarily optional) properties are not present: "RFC 5646 Spoken Language".
+                        [A] In each <SoundfieldGroupLabelSubDescriptor> the following (ordinarily optional) properties are present: "MCA Tag Name", "RFC 5646 Spoken Language".
+                        [A] In each <SoundfieldGroupLabelSubDescriptor> the following (ordinarily optional) properties are not present: "MCA Channel ID".
+                        [A] In each <GroupOfSoundfieldGroupsLabelSubDescriptor> the following (ordinarily optional) properties are present: "MCA Tag Name".
+                        [A] In each <GroupOfSoundfieldGroupsLabelSubDescriptor> the following (ordinarily optional) properties are not present: "MCA Channel ID", "RFC 5646 Spoken Language".
+                        [N] Implementation Notes
+                            [A] # Distribution and Repetition of SubDescriptors
+                                
+                                <SoundfieldGroupLabelSubDescriptor>s and <GroupOfSoundfieldGroupsLabelSubDescriptor>s could all be on one <Sound Track> or distributed. Hence, even the <GroupOfSoundfieldGroupsLabelSubDescriptor>s might not be on the same <Sound Track>.
+                                
+                                If several <Soundfield Group>s reference a single <Group of Soundfield Groups> then there will be more than one <GroupOfSoundfieldGroupsLabelSubDescriptor> for that <Group of Soundfield Groups>. That is, it is repeated for each <Soundfield Group> that references it.
+                                
+                                
+                                # Type of RFC5646SpokenLanguage property
+                                
+                                The value of this property is encoded as a US-ASCII string with one byte per character.
+                                
+                                Details:
+                                
+                                * The `RFC5646SpokenLanguage` property of the {MCALabelSubDescriptor} is defined in SMPTE ST 377-4:2012 as having the type "ISO-8String". This type is undefined.
+                                
+                                * However, the entry for `RFC5646SpokenLanguage` in the SMPTE Elements Register correctly lists the type as "ISO7", which refers to "ISO/IEC 646:1991, Information technology -- ISO 7-bit coded character set for information interchange.". That is the same character repertoire referenced by IETF RFC 5646.
+                                
+                    [K] Labels for use in Multichannel Audio Labeling Framework
+                        Associated Parameter Value: "Labels for use in Multichannel Audio Labeling Framework" (http://vm-1274-user.virt.ch.bbc.co.uk/as/block/param_link_7/)
+                [N] Implementation Notes
+                    [A] # "MCA Label Dictionary ID" Labels Used
+                        
+                        Note that no constraint is placed on which "MCA Label Dictionary ID" Labels can be used in the file. The stated constraint simply means that implementations that comply with this Block must be able to support all of the specified Labels. In practice this means that for most real Sound Tracks the specified Labels ought to be used but alternative Labels can be used if the need arises (for example to support the delivery of additional specialist Sound Tracks for which Labels have been privately agreed between the supplier and the broadcaster).
+            [N] Implementation Notes
+                [A] # Multichannel Audio Labeling Framework
+                    
+                    Each <Sound Track> will have:
+                    
+                    * one <AudioChannelLabelSubDescriptor> for each of its <Audio Channel>s
+                    * one <SoundfieldGroupLabelSubDescriptor>
+                    * one or more <GroupOfSoundfieldGroupsLabelSubDescriptor>s
+                    
+                    If two (or more) <Soundfield Group>s belong to the same <Group of Soundfield Groups> then the <GroupOfSoundfieldGroupsLabelSubDescriptor> will be repeated on each <Sound Track> that uses it.
+        [B] Embedded XML Documents
+            Conformance: mandatory
+            [A] Each XML document identified by <List of Embedded XML Documents> is embedded in the file using <XML Document in Header Metadata Carriage>.
+                [K] List of Embedded XML Documents
+                    Associated Parameter Value: "List of Embedded XML Documents" (http://vm-1274-user.virt.ch.bbc.co.uk/as/block/param_link_0/)
+                    [A] Lists XML documents to be embedded, defined in terms of:
+                        
+                        * the namespace of the document's root element
+                        * the name of the document's root element
+                        * a Media type (MIME type) for the document
+                [B] XML Document in Header Metadata Carriage
+                    [A] The XML document is a complete XML document (with a single root element) that is UTF-8 encoded without a "Byte-Order Mark" (BOM).
+                    [A] The XML document is carried in the <Header Metadata> according to <SMPTE RP 2057:2011>.
+                    [A] The instance of "Text-Based DM Framework" is strongly referenced from a <Constrained Static DM Track>.
+                        [B] Constrained Static DM Track
+                            [A] A <Constrained Static DM Track> is a <Static Track (DM)> in the <Material Package> that contains a <Sequence>, which contains exactly one <DM Segment>, which strongly references an instance of a <DM Framework>.
+                            [N] Track Name
+                                [A] The "Track Name" property of an <Constrained Static DM Track> does not identify the <DM Scheme> whose <DM Framework> it references. In the absence of other requirements for "Track Name", it is suggested that files use a value corresponding to the <DM Scheme> used in the track, e.g. "AS_11_Core", "AS_11_UKDPP".
+                    [A] The XML document is carried in the "UTF-8 Text Data" property of the "UTF-8 Text-based Set".
+                    [A] In the "UTF-8 Text-based Set" the property "Text-based Metadata Payload Scheme ID" has the value of <DM_XML_Document>.
+                        [B] DM_XML_Document
+                            [A] http://vm-1274-user.virt.ch.bbc.co.uk/as/block/XMLDMLabel/artefacts/Labels.xml
+                    [A] In the "UTF-8 Text-based Set" the property "Text Data Description" is present and has a value equal to the namespace of the root element of the XML document.
+                    [A] <2-byte Local Length Encoding> is used for both the "Text-Based DM Framework" and the "UTF-8 Text-based Set".
+                    [N] ST 2057 Implementation Notes
+                        [A] ## XML Document size limits
+                            The constraints mean that Byte 6 of the two set keys will be 53h. The amount of text data must be equal to or less than 65535 bytes.
+                            
+                            ## Amendment
+                            A crucial amendment to ST 2057 exists and must be read carefully -- it changes the ULs of various keys used in the Standard.
+        [B] AS-11 Segmentation DM
+            Conformance: mandatory
+            [A] The file contains exactly one <Program Segmentation Track>.
+                [B] Program Segmentation Track
+                    [A] A <Program Segmentation Track> is a <Timeline Track> that contains a <Sequence> that is composed of zero or more <Filler> objects and one or more <DM Segment> objects.
+                    [A] Each <DM Segment> object in the <Program Segmentation Track> represents, and aligns with, a region of program content in the <Source Essence>.
+                    [A] Each <Filler> object in the <Program Segmentation Track> represents, and aligns with, a region of non-program content in the <Source Essence>.
+                    [N] Track Name
+                        [A] The "Track Name" property of the <Program Segmentation Track> does not identify the segmentation metadata scheme. In the absence of other requirements for "Track Name", it is suggested that files use a value corresponding to the <DM Scheme> used in the track, e.g.  "AS_11_Segmentation".
+                    [N] Determining SOM and EOM
+                        [A] The start and end timecodes for program regions, commonly referred to as "start of material" (som) and "end of material" (eom), can be determined based on the location of <DM Segment> objects on the <Program Segmentation Track> relative to the adjacent <Timecode Track> in the <Material Package> that contains the <Program Segmentation Track>.
+                    [N] Non-Programme Content
+                        [A] Examples of non-programme content include: black, ident, clock.
+                    [N] Track Composition
+                        [A] Constraints set out in <SMPTE ST 377-1:2011> and <SMPTE ST 378:2004> mean that the <Program Segmentation Track> is necessarily full from start to finish and is the same length as all other <Timeline Track>s in the <Material Package>.
+            [A] This <Track> is in the <Material Package>.
+            [A] Each <DM Segment> object in the <Track> strongly references an instance of <DM_AS_11_Segmentation>.
+                [B] DM_AS_11_Segmentation
+                    [A] This <DM Scheme> is identified by <DM_AS_11_Segmentation> (the <DM Scheme Label>) and has the following members: <DM_AS_11_Segmentation_Framework> (the <DM Framework>).
+                        [B] DM_AS_11_Segmentation
+                            [A] http://vm-1274-user.virt.ch.bbc.co.uk/as/block/505L/artefacts/Labels.xml
+                        [B] DM_AS_11_Segmentation_Framework
+                            [A] http://vm-1274-user.virt.ch.bbc.co.uk/as/block/505F/artefacts/Groups.xml
+                            [A] http://vm-1274-user.virt.ch.bbc.co.uk/as/block/505F/artefacts/Elements.xml
+                            [A] http://vm-1274-user.virt.ch.bbc.co.uk/as/block/505F/artefacts/Types.xml
+            [N] Implementation Notes
+                [A] The <Track> can be identified by an MXF reader by the presence of <DM Segment> objects that each strongly reference an instance of the "DM_AS_11_Segmentation_Framework" <DM Framework>.
+            [N] Repetition of Header Metadata
+                [A] Repetition of Header Metadata in the Footer Partition is not considered to be another instance of any of the components of that Header Metadata.
+        [B] Specification Identification
+            Conformance: mandatory
+            [A] The <Specification_Identifiers> Element is present in the <Preface> of the <Header Partition>.
+                [B] Specification_Identifiers
+                    [A] http://vm-1274-user.virt.ch.bbc.co.uk/as/block/SpecID/artefacts/Elements.xml
+                    [A] http://vm-1274-user.virt.ch.bbc.co.uk/as/block/SpecID/artefacts/Types.xml
+                    [N] SMPTE Registers Node: Specification_Identification (Elements Register)
+                        [A] http://vm-1274-user.virt.ch.bbc.co.uk/as/note/Specification_Identification_E/artefacts/Elements.xml
+            [A] The value of this Element includes the Label <Blocks_FF_10> and the Label(s) specified by <File Format Specification Identification Label>.
+                [B] Blocks_FF_10
+                    [A] http://vm-1274-user.virt.ch.bbc.co.uk/as/block/SpecID_L10/artefacts/Labels.xml
+                    [N] SMPTE Registers Node: Specification_Identification (Labels Register)
+                        [A] http://vm-1274-user.virt.ch.bbc.co.uk/as/note/Specification_Identification_L/artefacts/Labels.xml
+                [K] File Format Specification Identification Label
+                    Associated Parameter Value: "File Format Specification Identification Label" (http://vm-1274-user.virt.ch.bbc.co.uk/as/block/param_link_15/)
+        [B] Dolby Audio Metadata
+            Conformance: optional
+            [A] The <Dolby E Audio Metadata Serial Bitstream> that describes an <Audio Program> is included in the file using <Dolby E Audio Metadata Serial Bitstream Carriage>.
+                [B] Dolby E Audio Metadata Serial Bitstream Carriage
+                    [A] The mapping of a <Dolby E Audio Metadata Serial Bitstream> into <VANC Data Packet>s conforms to <SMPTE 2020-B>.
+                    [A] The mapping of <VANC Data Packet>s into <ANC Frame Element>s is as specified in <Constrained Ancillary Data Mapping>.
+                        [B] Constrained Ancillary Data Mapping
+                            [A] The mapping of <VANC Data Packet>s into <ANC Frame Element>s is as specified in <SMPTE ST 436-1:2013> where "Payload Sample Coding" is "8-bit luma samples" (04h) and "Wrapping Type" is: "VANC Frame" (01h) (for interlaced or segmented progressive <Picture Essence>) or "VANC Progressive Frame" (04h) (for full-frame progressive <Picture Essence>).
+                    [A] The "Line Number" used for each field's <VANC Data Packet> in the <ANC Frame Element> is the same for all <VANC Data Packet>s for that field for the identified <Audio Program>.
+                    [N] Implementation Notes
+                        [A] # Use of Dolby E Audio Metadata Serial Bitstream Carriage
+                            
+                            The file can use Dolby E Audio Metadata Serial Bitstream Carriage to carry audio presentation metadata for zero, one or more than one SoundfieldGroups / Audio Programs.
+                            
+                            # SDID value
+                            
+                            SMPTE ST 2020-1 specifies that the SDID value within the VANC Data Packet be used to identify the Sound Tracks that make up the Audio Program. For example, VANC Data Packets that contain Dolby E Audio Metadata Serial Bitstream for a 5.1 channel Audio Program starting at channel pair 5/6 will require the SDID value in the VANC Data Packet to be set to 04h.
+                            
+                            However, this approach only works inside an MXF file if every Audio Channel in the file is identifiable using a pan-file channel number. This is the case if, for example, the Sound Tracks in the MXF file are numbered mono Sound Tracks.
+                            
+                            However, if the Sound Tracks in the MXF file are Multichannel Sound Tracks then this approach does not work. Some consequences of this:
+                            
+                            * The value to be used for SDID is undefined.
+                            * If more than one 5.1 SoundfieldGroup (and at least one Dolby E Audio Metadata Serial Bitstream) is included in the file then an external mechanism is needed to relate SoundfieldGroups and Dolby E Audio Metadata Serial Bitstreams.
+                            * The SDID values might need to be rewritten upon output so that they correctly identify the Audio Channels that are being used to carry the relevant SoundfieldGroup / Audio Program. For example, this might be the case when playing out an MXF file to SDI -- particularly if only certain audio is played out or the audio layout is changed.
+                            
+                            # DID value
+                            
+                            VANC Data Packets that are carrying Dolby E Audio Metadata Serial Bitstream will have a DID value of 45h.
+                            
+                            # Packets are not constant throughout
+                            
+                            SMPTE 2020-B requires that there is "one packet in each field of interlaced video formats". However, the two packets in each interlaced video frame are not identical.
+                            
+                            The values of SMPTE RDD 6 metadata properties might change from one frame to the next, but normally they will not. However, the VANC Data Packets in the file will not be identical even if the metadata is static: the "frame_count" will certainly increment and the "description_text" (if not null) will change.
+                            
+                            # Other data being carried in the ANC Frame Element
+                            
+                            The ANC Frame Element can also contain HANC Data Packets and other VANC Data Packets in addition to those carrying Dolby E Audio Metadata Serial Bitstreams. Irrespective of what data is carried in the ANC Frame Element, there is only ever one Track (in each of the Material Package and Top-Level File Package), one Data Element, and one associated Essence Descriptor in the MXF file.
+                            
+        [B] Timecode constraints
+            Conformance: mandatory
+            [B] Timecode Track Presence
+                Conformance: mandatory
+                [A] The <Material Package> contains exactly one <Timecode Track>.
+                [N] Implementation Notes
+                    [A] This Timecode Track provides "Synthetic Timecode" because its Timecode is "generated" from a single "Start Timecode" value that is associated with the beginning of the Material Package. This means that the Timecode is necessarily continuous throughout the entire playback of the MXF file.
+            [B] Constrained Timecode Track in Material Package
+                Conformance: mandatory
+                [A] The <Timecode Track> in the <Material Package> is a <Constrained Timecode Track>.
+                    [B] Constrained Timecode Track
+                        [A] A <Constrained Timecode Track> is a <Timecode Track>.
+                        [A] The value of the "Edit Rate" property of this <Timecode Track> is the same as the value of the "Edit Rate" property of the <Picture Track> in the same <Package>.
+                        [A] There is exactly one <Timecode Component> in this <Timecode Track>.
+                        [A] The value of the "Rounded Timecode Base" property of the <Timecode Component> is the "Edit Rate" of this <Timecode Track> rounded to the nearest integer.
+                        [A] The value of the "Drop Frame" property of the <Timecode Component> is "False" except in any of the following scenarios (in which case it is "True"):
+                            
+                            * The "Rounded Timecode Base" property of the <Timecode Component> is `60` and the "Edit Rate" of this <Timecode Track> is mathematically equal to `60000/1001`
+                            * The "Rounded Timecode Base" property of the <Timecode Component> is `30` and the "Edit Rate" of this <Timecode Track> is mathematically equal to `30000/1001`
+                        [N] Rational Numbers
+                            [A] Care must be taken when dealing with numbers expressed as a ratio of two integers ("rationals"). They are often used to represent temporal rates or image aspect ratios.
+                                
+                                When making comparisons of these values, it is insufficient to simply compare each of the numerators and each of the denominators. For example, `7/5` is mathematically equal to `14/10`.
+            [B] Timecode Track Precedence
+                Conformance: mandatory
+                [A] The <Timecode Track> in the <Material Package> defines the authoritative program timecode.
+                [N] Implementation Notes
+                    [A] The authority of the Timecode Track in the Material Package needs to be respected by all components of a system that handles the file.
+        [B] Closed Captions
+            Conformance: optional
+            [A] <Caption Distribution Packet>s are included in the file using <Closed Captions Carriage>.
+                [B] Closed Captions Carriage
+                    [A] The mapping of <Caption Distribution Packet>s into <VANC Data Packet>s conforms to <SMPTE ST 334-1:2015>.
+                    [A] The mapping of <VANC Data Packet>s into <ANC Frame Element>s is as specified in <Constrained Ancillary Data Mapping>.
+                        [B] Constrained Ancillary Data Mapping
+                            [A] The mapping of <VANC Data Packet>s into <ANC Frame Element>s is as specified in <SMPTE ST 436-1:2013> where "Payload Sample Coding" is "8-bit luma samples" (04h) and "Wrapping Type" is: "VANC Frame" (01h) (for interlaced or segmented progressive <Picture Essence>) or "VANC Progressive Frame" (04h) (for full-frame progressive <Picture Essence>).
+                    [N] Implementation Notes
+                        [A] # DID and SDID values
+                            
+                            <VANC Data Packet>s that are carrying <Caption Distribution Packet> will have a DID value of 61h and a SDID value of 01h.
+                            
+                            # Other data being carried in the <ANC Frame Element>
+                            
+                            The <ANC Frame Element> can also contain HANC Data Packets and other <VANC Data Packet>s in addition to those carrying <Caption Distribution Packet>s. Irrespective of what data is carried in the <ANC Frame Element>, there is only ever one <Track> (in each of the <Material Package> and Top-Level File Package), one Data Element, and one associated Essence Descriptor in the MXF file.
+                            
+        [N] Implementation Notes
+            [A] ## Essence Container Label
+                The stated constraints mean that the <Essence Container Label> used to identify the <Picture Essence> mapping is always urn:smpte:ul:060e2b34.0401010a.0d010301.02106001 (MXFGCAVCByteStreamWithVideoStream0SIDFrameWrapped)
+    [V] List of Embedded XML Documents
+        Conformance: mandatory
+        Associated Parameter Key: "List of Embedded XML Documents" (http://vm-1274-user.virt.ch.bbc.co.uk/as/block/param0/)
+        [B] XML DM for Programmes
+            Conformance: mandatory
+            [A] The namespace of the document's root element is <Programmes Descriptive Metadata>; the name of the document's root element is "Programmes_DM"; the Media type (MIME type) for the document is "application/xml"
+                [B] Programmes Descriptive Metadata
+                    [A] http://vm-1274-user.virt.ch.bbc.co.uk/as/block/DM_Programmes/artefacts/DM_Programmes.xsd
+    [V] Picture Essence Constraints
+        Conformance: mandatory
+        Associated Parameter Key: "Picture Essence Constraints" (http://vm-1274-user.virt.ch.bbc.co.uk/as/block/param2/)
+        [B] Picture Essence Bitstream and Mapping Constraints
+            Conformance: mandatory
+            [B] Picture format constraints
+                Conformance: mandatory
+                [A] The decoded <Picture Essence> conforms to either of: <Constrained 1080i/29.97> or <Constrained 720p/59.94>.
+                    [B] Constrained 1080i/29.97
+                        [A] The decoded <Picture Essence> conforms to <SMPTE ST 274:2008> where:
+                            
+                            * "Image sampling system" is "5"
+                            * "Digital Representation" is:
+                                + "Y' C'B C'R"
+                                + "8 bits per sample" or "10 bits per sample"
+                                + "4:2:2" or "4:2:0"
+                        [N] Implementation Notes
+                            [A] Image Sampling System 5 in <SMPTE ST 274:2008> is 1080i/29.97.
+                        [N] TODO: 4:2:0 Subsampling
+                            [A] 4:2:0 subsampling is not defined in <SMPTE ST 274:2008>.
+                                
+                                However, there is a _de facto_ "standard" for 4:2:0 subsampling for HD material, which is described in <ITU-T Rec H.264-201402>.
+                    [B] Constrained 720p/59.94
+                        [A] The decoded <Picture Essence> conforms to <SMPTE ST 296:2012> where:
+                            
+                            * "Image sampling system" is "2"
+                            * "Digital Representation" is:
+                                + "Y' C'B C'R"
+                                + "10 bits per sample"
+                                + "4:2:2"
+                        [N] Implementation Notes
+                            [A] Image Sampling System 2 in <SMPTE ST 296:2012> is 720p/59.94.
+            [B] AVC Coding
+                Conformance: mandatory
+                [A] The <AVC> bitstream is encoded in accordance with:
+                    
+                    * <AVC High 4:2:2 constraints> when a "4:2:2 system" is used
+                    * <AVC High 10 constraints> when a "4:2:0 system" and "10 bits per sample" is used
+                    * <AVC High constraints> when a "4:2:0 system" and "8 bits per sample" is used
+                    [B] AVC High 4:2:2 constraints
+                        [A] The <AVC> bitstream conforms to the "High 4:2:2 Profile".
+                        [A] In the Picture Essence Descriptor the (ordinarily optional) "Picture Essence Coding" property is present and has the value: `060e2b34.0401010d.04010202.01316001`
+                    [B] AVC High 10 constraints
+                        [A] The <AVC> bitstream conforms to the "High 10 Profile".
+                        [A] In the Picture Essence Descriptor the (ordinarily optional) "Picture Essence Coding" property is present and has the value: `060e2b34.0401010d.04010202.01315001`
+                    [B] AVC High constraints
+                        [A] The <AVC> bitstream conforms to the "High Profile".
+                        [A] In the Picture Essence Descriptor the (ordinarily optional) "Picture Essence Coding" property is present and has the value: `060e2b34.0401010d.04010202.01314001`
+                [A] The mean data rate of the Picture Essence is greater than or equal to 15,000,000 bits per second.
+                [A] For every Picture Parameter Set the <entropy_coding_mode_flag> is not set.
+                [A] **TODO:** GOP Structure M=3 N=12 B=2
+                [N] Data rate calculation
+                    [A] The mean data rate (in bits per second) can be calculated by taking the total size of the Picture Essence stored in the file (in number of bits), dividing by the number of Edit Units in the file (which might be more than the length of the Material Package or Top Level File Package) and then multiplying the result by the Edit Rate.
+                [N] Implementation Notes
+                    [A] The <entropy_coding_mode_flag> being not set (it having a value of `0`) means that CABAC entropy coding is not used in the <AVC> encoding.
+                [N] TODO: Repetition of parameter sets
+                    [A] In the AVC bitstream the SPS and PPS are repeated every ... [TODO]
+                [N] TODO: GOP structure
+                    [A] In the AVC bitstream there are between 1 and [TODO] non-IDR Pictures between one IDR Picture and the next IDR Picture.
+            [B] AVC Video Usability Information - Timing Info
+                Conformance: mandatory
+                [A] For every Sequence Parameter Set the <fixed_frame_rate_flag> is present and is set.
+            [N] Implementation Notes
+                [A] The constraints expressed here for the AVC bitstream result in an AVC "Level" of at least **TODO**.
+    [V] File Format Specification Identification Label
+        Conformance: mandatory
+        Associated Parameter Key: "File Format Specification Identification Label" (http://vm-1274-user.virt.ch.bbc.co.uk/as/block/param3/)
+        [B] Blocks_FF_11
+            Conformance: mandatory
+            [A] http://vm-1274-user.virt.ch.bbc.co.uk/as/block/SpecID_L11/artefacts/Labels.xml
+    [V] Labels for use in Multichannel Audio Labeling Framework
+        Conformance: mandatory
+        Associated Parameter Key: "Labels for use in Multichannel Audio Labeling Framework" (http://vm-1274-user.virt.ch.bbc.co.uk/as/block/param4/)
+        [B] Multichannel Audio Labels Collection 0
+            Conformance: mandatory
+            [A] http://vm-1274-user.virt.ch.bbc.co.uk/as/block/MCAL_Labels_Set_0/artefacts/Labels.xml
+            [A] <AudioChannelLabelSubDescriptor>s use the SMPTE Metadata Registers Entries listed here in accordance with this table.
+                
+                 SMPTE Metadata Registers Symbol           | MCA Tag Name                  | MCA Tag Symbol
+                 ------------------------------------------|-------------------------------|----------------
+                 `AudioDescriptionStudioSignalDataChannel` | AD Studio Signal Data Channel | `chADSSdc`
+                 `LeftAudioChannel`                        | Left                          | `chL`
+                 `RightAudioChannel`                       | Right                         | `chR`
+                 `CenterAudioChannel`                      | Center                        | `chC`
+                 `LFEAudioChannel`                         | LFE                           | `chLFE`
+                 `LeftSurroundAudioChannel`                | Left Surround                 | `chLs`
+                 `RightSurroundAudioChannel`               | Right Surround                | `chRs`
+                 `VisuallyImpairedNarrativeAudioChannel`   | Visually Impaired Narrative   | `chVIN`
+            [A] <SoundfieldGroupLabelSubDescriptor>s use the SMPTE Metadata Registers Entries listed here in accordance with this table.
+                
+                 SMPTE Metadata Registers Symbol           | MCA Tag Name      | MCA Tag Symbol | Constituent Audio Channels (in no particular order)
+                 ------------------------------------------|-------------------|----------------|----------------------------
+                 `AudioDescriptionStudioSignal`            | AD Studio Signal  | `sgADSS`       | `chVIN`, `chADSSdc`
+                 `_51SoundfieldGroup`                      | 5.1               | `sg51`         | `chL`, `chR`, `chC`, `chLFE`, `chLs`, `chRs`
+                 `SMPTEST20678StandardStereo`              | Standard Stereo   | `sgST`         | `chL`, `chR`
+            [A] <GroupOfSoundfieldGroupsLabelSubDescriptor>s use the SMPTE Metadata Registers Entries listed here in accordance with this table.
+                
+                 SMPTE Metadata Registers Symbol           | MCA Tag Name                    | MCA Tag Symbol
+                 ------------------------------------------|---------------------------------|----------------
+                 `AlternativeProgram`                      | Alternative Program             | `ggAPg`
+                 `MusicAndEffects`                         | Music and Effects               | `ggME`
+                 `AudioDescription`                        | Audio Description               | `ggAD`
+                 `AudioDescriptionProgramMix`              | Audio Description Programme Mix | `ggADPgMx`
+                 `SMPTEST20678MainProgram`                 | Main Program                    | `ggMPg`
+            [N] SMPTE Registers Node: InterpretiveSoundEssence
+                [A] http://vm-1274-user.virt.ch.bbc.co.uk/as/note/InterpretiveSoundEssence/artefacts/Labels.xml
+            [N] SMPTE Registers Node: AudioChannel
+                [A] http://vm-1274-user.virt.ch.bbc.co.uk/as/note/AudioChannel/artefacts/Labels.xml
+            [N] SMPTE Registers Node: SoundfieldGroup
+                [A] http://vm-1274-user.virt.ch.bbc.co.uk/as/note/SoundfieldGroup/artefacts/Labels.xml
+            [N] SMPTE Registers Node: GroupOfSoundfieldGroups
+                [A] http://vm-1274-user.virt.ch.bbc.co.uk/as/note/GroupOfSoundfieldGroups/artefacts/Labels.xml
+            [N] MCA Tag Symbol prefixes
+                [A] The MCA Tag Symbols for labels that are used here but defined elsewhere have had prefixes applied to the values specified in their defining documents.
+                    
+                    These prefixes (`ch` for Audio Channel; `sg` for Soundfield Group; `gg` for Group of Soundfield Group) are also applied by the Digital Cinema and IMF applications of the Multichannel Audio Labeling framework (SMPTE ST 377-4), so this Specification uses the same MCA Tag Symbols as used in those applications.
+            [N] Labels used here but defined elsewhere
+                [A] Some of the Labels listed here are defined elsewhere. For a full explanation of such Labels, refer to the document detailed in the `DefiningDocument` element for the Label in the relevant XML.
+            [N] Labeling Audio Description
+                [A] The anticipated application of these Labels to "Audio Decsription" is as follows:
+                    
+                    * `AudioDescription` will be used with `AudioDescriptionStudioSignal`
+                    * `AudioDescriptionProgramMix` will be used with `SMPTEST20678StandardStereo`
+                    
+                    Other valid combinations of "Soundfield Group" and "Group of Soundfield Groups" Labels are also possible.
+    [V] Extra Audio Layout Modes
+        Conformance: mandatory
+        Associated Parameter Key: "Extra Audio Layout Modes" (http://vm-1274-user.virt.ch.bbc.co.uk/as/block/param1/)
+        [B] Null Block
+            Conformance: mandatory
+            [A] This Block provides no further options or constraints.
+    [N] Audio Layout Modes summary
+        [A] A summary of the {Audio Layout Mode}s available in this Specification is in the table below. Note that every MXF file must use one of the listed modes.
+            
+            In all defined modes there can be between 0 and 127 (inclusive) Sound Tracks in the MXF file.
+            
+            Mode Name           | "Channel Assignment Label"                                                 | "MCA Labeling Present"  |     "Default Audio Layout"
+            ------------------- | -------------------------------------------------------------------------- | ----------------------- | ------------------------------
+            Audio Layout Mode 0 | ConstrainedMultichannelAudioLabelingFramework                              |          true           | **NOT SET** (no assumptions can be made)
+
+
+
+THIS AMWA SPECIFICATION IS BEING OFFERED WITHOUT ANY WARRANTY WHATSOEVER,
+AND IN PARTICULAR, ANY WARRANTY OF NON-INFRINGEMENT IS EXPRESSLY DISCLAIMED.
+ANY USE OF THIS SPECIFICATION SHALL BE MADE ENTIRELY AT THE IMPLEMENTER'S
+OWN RISK, AND NEITHER AMWA, NOR ANY OF ITS MEMBERS OR CONTRIBUTORS, SHALL
+HAVE ANY LIABILITY WHATSOEVER TO ANY IMPLEMENTER OR THIRD PARTY FOR ANY
+DAMAGES OF ANY NATURE WHATSOEVER, DIRECTLY OR INDIRECTLY, ARISING FROM THE
+USE OF THIS SPECIFICATION.
+
+Readers are advised that any IPR contribution forms associated with this
+project are available from the [AMWA](http://amwa.tv/)
+
+
+(c) AMWA 2016, Licensed under the Apache License, Version 2.0
+
+The following license applies to all parts of this Specification except
+as documented below:
+
+====
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this Specification except in compliance with the License.
+You may obtain a copy of the License at
+
+   http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+
+====
+
+All files located in the "include" directory are externally maintained
+libraries used by this Specification which have their own licenses; we
+recommend you read them, as their terms may differ from the terms above.
