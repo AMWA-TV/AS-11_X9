@@ -2541,41 +2541,58 @@
                                                 <p>The value of the "Rounded Timecode Base" property of the <a class='' data-toggle='tooltip' href='#88b227a5b8d6efdbb1e220e11d944600' title='An MXF structure that stores &lt;Timecode&gt; information.'>Timecode Component</a> is the "Edit Rate" of this <a class='' data-toggle='tooltip' href='#c37d1aa58b62144dffeda154c716f879' title='An MXF &lt;Track&gt; that stores one or more &lt;Timecode Component&gt;s.'>Timecode Track</a> rounded to the nearest integer.</p>
                                             </div>
                                         </li>
-                                        <li data-jstree='{"icon":"include/artefact.png"}' id='7a3d5ec0df92fa46f10cf6d49734c6d3'>
-                                            <div class='content_container clearfix'>
-                                                <p>The value of the "Drop Frame" property of the <a class='' data-toggle='tooltip' href='#88b227a5b8d6efdbb1e220e11d944600' title='An MXF structure that stores &lt;Timecode&gt; information.'>Timecode Component</a> is "False" except in any of the following scenarios (in which case it is "True"):</p>
-                                                
-                                                <ul>
-                                                <li>The "Rounded Timecode Base" property of the <a class='' data-toggle='tooltip' href='#88b227a5b8d6efdbb1e220e11d944600' title='An MXF structure that stores &lt;Timecode&gt; information.'>Timecode Component</a> is <code>60</code> and the "Edit Rate" of this <a class='' data-toggle='tooltip' href='#c37d1aa58b62144dffeda154c716f879' title='An MXF &lt;Track&gt; that stores one or more &lt;Timecode Component&gt;s.'>Timecode Track</a> is mathematically equal to <code>60000/1001</code></li>
-                                                <li>The "Rounded Timecode Base" property of the <a class='' data-toggle='tooltip' href='#88b227a5b8d6efdbb1e220e11d944600' title='An MXF structure that stores &lt;Timecode&gt; information.'>Timecode Component</a> is <code>30</code> and the "Edit Rate" of this <a class='' data-toggle='tooltip' href='#c37d1aa58b62144dffeda154c716f879' title='An MXF &lt;Track&gt; that stores one or more &lt;Timecode Component&gt;s.'>Timecode Track</a> is mathematically equal to <code>30000/1001</code></li>
-                                                </ul>
-                                            </div>
-                                        </li>
-                                        <li data-jstree='{"icon":"include/note.png"}' id='1c6e31cae17d47087cccde0d13ee8e8a'>
-                                            <div class='content_container clearfix'>
-                                                <b>Rational Numbers</b>
-                                            </div>
-                                            <ul>
-                                            <li data-jstree='{"icon":"include/file.png"}' id='1c6e31cae17d47087cccde0d13ee8e8a-info'>
-                                                <div class='content_container clearfix'>
-                                                    Additional Information
-                                                </div>
-                                                <ul>
-                                                <li data-jstree='{"icon":"hidden", "disabled":"true"}' id='1c6e31cae17d47087cccde0d13ee8e8a-info-ID'>
-                                                    <p class='info'><b>ID:</b> <a href='http://vm-1274-user.virt.ch.bbc.co.uk/as/note/E69/' target='_blank'>http://vm-1274-user.virt.ch.bbc.co.uk/as/note/E69/</a></p>
-                                                </li>
-                                                </ul>
-                                            </li>
-                                            <li data-jstree='{"icon":"include/noteartefact.png"}' id='7c6281875ed83275bd30a5d7a18073fa'>
-                                                <div class='content_container clearfix'>
-                                                    <p>Care must be taken when dealing with numbers expressed as a ratio of two integers ("rationals"). They are often used to represent temporal rates or image aspect ratios.</p>
-                                                    
-                                                    <p>When making comparisons of these values, it is insufficient to simply compare each of the numerators and each of the denominators. For example, <code>7/5</code> is mathematically equal to <code>14/10</code>.</p>
-                                                </div>
-                                            </li>
-                                            </ul>
+                                        </ul>
+                                    </li>
+                                    </ul>
+                                </li>
+                                </ul>
+                            </li>
+                            <li data-jstree='{"icon":"include/blockrec.png"}' id='86446e6591b5f10c2725daf132d90f45'>
+                                <div class='content_container clearfix'>
+                                    <b>Drop Frame Timecode</b> <em>(Recommended)</em>
+                                </div>
+                                <ul>
+                                <li data-jstree='{"icon":"include/file.png"}' id='86446e6591b5f10c2725daf132d90f45-info'>
+                                    <div class='content_container clearfix'>
+                                        Additional Information
+                                    </div>
+                                    <ul>
+                                    <li data-jstree='{"icon":"hidden", "disabled":"true"}' id='86446e6591b5f10c2725daf132d90f45-info-ID'>
+                                        <p class='info'><b>ID:</b> <a href='http://vm-1274-user.virt.ch.bbc.co.uk/as/block/DF/' target='_blank'>http://vm-1274-user.virt.ch.bbc.co.uk/as/block/DF/</a></p>
+                                    </li>
+                                    </ul>
+                                </li>
+                                <li data-jstree='{"icon":"include/artefact.png"}' id='6d707918ba8ce63ef645659bc054c0ee'>
+                                    <div class='content_container clearfix'>
+                                        <p>The value of the "Drop Frame" property of the <a class='' data-toggle='tooltip' href='#88b227a5b8d6efdbb1e220e11d944600' title='An MXF structure that stores &lt;Timecode&gt; information.'>Timecode Component</a> in the <a class='' data-toggle='tooltip' href='#c37d1aa58b62144dffeda154c716f879' title='An MXF &lt;Track&gt; that stores one or more &lt;Timecode Component&gt;s.'>Timecode Track</a> in the <a class='' data-toggle='tooltip' href='#d9555ddfd84c0a765c55579f6e8c1870' title='An MXF data structure that describe an output timeline of the file.'>Material Package</a> is "False" except in any of the following scenarios (in which case it is "True"):</p>
+                                        
+                                        <ul>
+                                        <li>The "Rounded Timecode Base" property of the <a class='' data-toggle='tooltip' href='#88b227a5b8d6efdbb1e220e11d944600' title='An MXF structure that stores &lt;Timecode&gt; information.'>Timecode Component</a> is <code>60</code> and the "Edit Rate" of the <a class='' data-toggle='tooltip' href='#c37d1aa58b62144dffeda154c716f879' title='An MXF &lt;Track&gt; that stores one or more &lt;Timecode Component&gt;s.'>Timecode Track</a> is mathematically equal to <code>60000/1001</code></li>
+                                        <li>The "Rounded Timecode Base" property of the <a class='' data-toggle='tooltip' href='#88b227a5b8d6efdbb1e220e11d944600' title='An MXF structure that stores &lt;Timecode&gt; information.'>Timecode Component</a> is <code>30</code> and the "Edit Rate" of the <a class='' data-toggle='tooltip' href='#c37d1aa58b62144dffeda154c716f879' title='An MXF &lt;Track&gt; that stores one or more &lt;Timecode Component&gt;s.'>Timecode Track</a> is mathematically equal to <code>30000/1001</code></li>
+                                        </ul>
+                                    </div>
+                                </li>
+                                <li data-jstree='{"icon":"include/note.png"}' id='04a171f8881ce89b0e269a3ccfc50282'>
+                                    <div class='content_container clearfix'>
+                                        <b>Rational Numbers</b>
+                                    </div>
+                                    <ul>
+                                    <li data-jstree='{"icon":"include/file.png"}' id='04a171f8881ce89b0e269a3ccfc50282-info'>
+                                        <div class='content_container clearfix'>
+                                            Additional Information
+                                        </div>
+                                        <ul>
+                                        <li data-jstree='{"icon":"hidden", "disabled":"true"}' id='04a171f8881ce89b0e269a3ccfc50282-info-ID'>
+                                            <p class='info'><b>ID:</b> <a href='http://vm-1274-user.virt.ch.bbc.co.uk/as/note/E69/' target='_blank'>http://vm-1274-user.virt.ch.bbc.co.uk/as/note/E69/</a></p>
                                         </li>
                                         </ul>
+                                    </li>
+                                    <li data-jstree='{"icon":"include/noteartefact.png"}' id='d546df07fa8cb3e71e54c8c7f6a08ee0'>
+                                        <div class='content_container clearfix'>
+                                            <p>Care must be taken when dealing with numbers expressed as a ratio of two integers ("rationals"). They are often used to represent temporal rates or image aspect ratios.</p>
+                                            
+                                            <p>When making comparisons of these values, it is insufficient to simply compare each of the numerators and each of the denominators. For example, <code>7/5</code> is mathematically equal to <code>14/10</code>.</p>
+                                        </div>
                                     </li>
                                     </ul>
                                 </li>
