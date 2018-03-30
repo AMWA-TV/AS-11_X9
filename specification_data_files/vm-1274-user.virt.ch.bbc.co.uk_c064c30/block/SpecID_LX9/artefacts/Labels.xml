@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
-Copyright (c) 2016 SMPTE All rights reserved.
+Copyright (c) 2018 SMPTE All rights reserved.
 
 This document contains content which exists (or may exist in the future) in publications of the SMPTE Metadata Registers.
 
@@ -17,17 +17,17 @@ Redistribution and use in source and binary forms, with or without modification,
 THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 -->
 <LabelsRegister xmlns="http://www.smpte-ra.org/schemas/400/2012">
-  <Entries>
-    <Entry>
-      <Register>Labels</Register>
-      <NamespaceName>http://www.smpte-ra.org/reg/400/2012/13/1/amwa/rules</NamespaceName>
-      <Symbol>Blocks_FF_10_WIP</Symbol>
-      <UL>urn:smpte:ul:060e2b34.04010101.0d010801.03090000</UL>
-      <Kind>LEAF</Kind>
-      <Name>Blocks File Format 10 WIP</Name>
-      <Definition>Blocks File Format 10 (Work in Progress)</Definition>
-      <DefiningDocument>AMWA Rules-based Specification component</DefiningDocument>
-      <IsDeprecated>false</IsDeprecated>
-    </Entry>
-  </Entries>
+ <Entries>
+   <Entry>
+     <Register>Labels</Register>
+     <NamespaceName>http://www.smpte-ra.org/reg/400/2012/13/1/amwa/rules</NamespaceName>
+     <Symbol>Blocks_FF_X9</Symbol>
+     <UL>urn:smpte:ul:060e2b34.04010101.0d010801.05090000</UL>
+     <Kind>LEAF</Kind>
+     <Name>Blocks File Format X9</Name>
+     <Definition>Blocks File Format X9</Definition>
+     <DefiningDocument>AMWA Rules-based Specification component</DefiningDocument>
+     <IsDeprecated>false</IsDeprecated>
+   </Entry>
+ </Entries>
 </LabelsRegister>
