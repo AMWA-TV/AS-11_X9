@@ -263,14 +263,17 @@ An implementation complies with this Specification if it complies with the Compo
                     [B] AAC Compressed 16-bit audio at 48 kHz
                         Conformance: mandatory
                         [A] For each <Audio Channel> the <Sound Essence> is sampled at 48 kHz with 16 bits per sample, and compressed in accordance with the MPEG-2 <AAC> Low Complexity Profile as specified in <ISO/IEC 13818-7>, with an ADTS "wrapper" and a standard MPEG-2 AAC "Channel Configuration".
-                    [B] Unconstrained ST 381-4 AAC mapping
+                    [B] Constrained ST 381-4 AAC mapping
                         Conformance: mandatory
                         [A] The <Sound Essence> is mapped to the file using the method described by <SMPTE ST 381-4>.
+                        [A] In the {MPEGAudioDescriptor} the (ordinarily optional) "ElectrospatialFormulation" property is not present.
+                        [A] In the {MPEGAudioDescriptor} the (ordinarily optional) "MPEGAudioChannelAssignment" property is present.
+                        [A] In the {MPEGAudioDescriptor} the value of the "MPEGAudioChannelAssignment" property is the same for all <Sound Track>s.
         [B] Audio Layout
             Conformance: mandatory
             [A] An <Audio Layout Mode> is used with the properties set as specified by <Audio Layout Mode 0>.
                 [B] Audio Layout Mode
-                    [A] The value of <Channel Assignment Label> is a SMPTE Universal Label that is used as the value of the "ChannelAssignment" property in the {WAVEPCMDescriptor}.
+                    [A] The value of <Channel Assignment Label> is a SMPTE Universal Label that is used as the value of the <Sound Essence Descriptor> property that signals channel assignment.
                     [A] If <MCA Labeling Present> is "true" then <Constrained Multichannel Audio Labeling Framework> is used. Otherwise the Multichannel Audio Labeling Framework specified in <SMPTE ST 377-4:2012> is not used.
                         [B] Constrained Multichannel Audio Labeling Framework
                             [A] The file uses the Multichannel Audio Labeling Framework specified in <SMPTE ST 377-4:2012>.
@@ -304,6 +307,11 @@ An implementation complies with this Specification if it complies with the Compo
                                     * However, the entry for `RFC5646SpokenLanguage` in the SMPTE Elements Register correctly lists the type as "ISO7", which refers to "ISO/IEC 646:1991, Information technology -- ISO 7-bit coded character set for information interchange.". That is the same character repertoire referenced by IETF RFC 5646.
                                     
                     [A] The value of <Default Audio Layout> defines any static properties of <Audio Channel>s and <Sound Track>s in the file.
+                    [N] Channel Assignment Signalling
+                        [A] There are different ways of signalling channel assignment depending on the format of the audio. For example:
+                            
+                            * PCM uses the "ChannelAssignment" property of the {WAVEPCMDescriptor} <Sound Essence Descriptor>
+                            * AAC uses the "MPEGAudioChannelAssignment" property of the {MPEGAudioDescriptor} <Sound Essence Descriptor>
                 [B] Audio Layout Mode 0
                     [A] <Channel Assignment Label> is <ConstrainedMultichannelAudioLabelingFramework(Label)>.
                         [B] ConstrainedMultichannelAudioLabelingFramework(Label)
