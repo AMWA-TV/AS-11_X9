@@ -1,4 +1,4 @@
-# **[Work In Progress]** AS-11 X9 (MXF Program Contribution - NABA DPP HD (AVC))
+# **[Proposed Specification]** AS-11 X9 (MXF Program Contribution - NABA DPP HD (AVC))
 
 |*Important links*| |
 |-----------------|-|
@@ -64,7 +64,7 @@ An implementation complies with this Specification if it complies with the Compo
 # The Specification Blocks Tree
 
 [B] File Format
-    <Component ID: http://vm-1274-user.virt.ch.bbc.co.uk/as/block/FF_X9/>
+    <Component ID: http://www.amwa.tv/projects/rules/01/block/FF_X9/>
     [B] Core MXF constraints
         Conformance: mandatory
         <Component ID: http://www.amwa.tv/projects/rules/01/block/MXF_Core/>
@@ -287,16 +287,16 @@ An implementation complies with this Specification if it complies with the Compo
                 <Component ID: http://www.amwa.tv/projects/rules/01/note/E37/artefacts/1.md>
     [B] MXF Indexing and Partitioning
         Conformance: mandatory
-        <Component ID: http://vm-1274-user.virt.ch.bbc.co.uk/as/block/Index_1/>
+        <Component ID: http://www.amwa.tv/projects/rules/01/block/Index_1/>
         [A] The file is in accordance with either of: <MXF Indexing and Partitioning strategy for VBE Essence> or <MXF Indexing and Partitioning strategy for CBE Essence>.
-            <Component ID: http://vm-1274-user.virt.ch.bbc.co.uk/as/block/Index_1/artefacts/1.md>
+            <Component ID: http://www.amwa.tv/projects/rules/01/block/Index_1/artefacts/1.md>
             [B] MXF Indexing and Partitioning strategy for VBE Essence
-                <Component ID: http://vm-1274-user.virt.ch.bbc.co.uk/as/block/MXF_Inter2/>
+                <Component ID: http://www.amwa.tv/projects/rules/01/block/MXF_Inter2/>
                 [B] Segment the Essence Container
                     Conformance: mandatory
-                    <Component ID: http://vm-1274-user.virt.ch.bbc.co.uk/as/block/seg_2/>
+                    <Component ID: http://www.amwa.tv/projects/rules/01/block/seg_2/>
                     [A] The <Essence Container> is segmented into <Partition>s of 10 minutes of <Essence> or less.
-                        <Component ID: http://vm-1274-user.virt.ch.bbc.co.uk/as/block/seg_2/artefacts/1.md>
+                        <Component ID: http://www.amwa.tv/projects/rules/01/block/seg_2/artefacts/1.md>
                         [T] Essence Container
                             A part of an MXF file that carries one or more <Essence> streams.
                             <Component ID: http://www.amwa.tv/projects/rules/01/term/Essence%20Container/>
@@ -310,7 +310,7 @@ An implementation complies with this Specification if it complies with the Compo
                             A bitstream comprising picture, sound or data.
                             <Component ID: http://www.amwa.tv/projects/rules/01/term/Essence/>
                     [N] Essence partitioning
-                        <Component ID: http://vm-1274-user.virt.ch.bbc.co.uk/as/note/E83/>
+                        <Component ID: http://www.amwa.tv/projects/rules/01/note/E83/>
                         [A] # Explanation of Essence Segmenting and Partitions
                             
                             Refer to <SMPTE ST 377-1:2011> Section 6.2.1 for the "Partition Rules Overview"
@@ -319,7 +319,7 @@ An implementation complies with this Specification if it complies with the Compo
                             
                             It is recommended that the Essence is partitioned into evenly-sized segments.
                             It is not necessary to attempt to avoid a small trailing segment by choosing a segment size that is a a submultiple of the total Essence length.
-                            <Component ID: http://vm-1274-user.virt.ch.bbc.co.uk/as/note/E83/artefacts/1.md>
+                            <Component ID: http://www.amwa.tv/projects/rules/01/note/E83/artefacts/1.md>
                             [R] SMPTE ST 377-1:2011
                                 <Component ID: http://www.amwa.tv/projects/rules/01/external_reference_revision/SMPTE%20ST%20377-1-2011/>
                 [B] Index Each Essence Container Segment
@@ -387,7 +387,7 @@ An implementation complies with this Specification if it complies with the Compo
                             <Component ID: http://www.amwa.tv/projects/rules/01/note/E13/artefacts/1.md>
                 [N] Application to CBE Essence
                     <Component ID: http://www.amwa.tv/projects/rules/01/note/E29/>
-                    [A] While these constraints are designed for use with Varible Bytes per Element (VBE) Essence, it is possible to apply them to Constant Bytes per Element (CBE) Essence. There are more efficient ways to deal with CBE Essence, however.
+                    [A] While these constraints are designed for use with Variable Bytes per Element (VBE) Essence, it is possible to apply them to Constant Bytes per Element (CBE) Essence. There are more efficient ways to deal with CBE Essence, however.
                         <Component ID: http://www.amwa.tv/projects/rules/01/note/E29/artefacts/1.md>
             [B] MXF Indexing and Partitioning strategy for CBE Essence
                 <Component ID: http://www.amwa.tv/projects/rules/01/block/MXF_Intra/>
@@ -450,7 +450,7 @@ An implementation complies with this Specification if it complies with the Compo
                         <Component ID: http://www.amwa.tv/projects/rules/01/note/007/artefacts/1.md>
     [B] AVC mapped with ST 381-3
         Conformance: mandatory
-        <Component ID: http://vm-1274-user.virt.ch.bbc.co.uk/as/block/P005/>
+        <Component ID: http://www.amwa.tv/projects/rules/01/block/P005/>
         [B] One Picture Track
             Conformance: mandatory
             <Component ID: http://www.amwa.tv/projects/rules/01/block/180/>
@@ -543,12 +543,12 @@ An implementation complies with this Specification if it complies with the Compo
                     <Component ID: http://www.amwa.tv/projects/rules/01/note/E10/artefacts/1.md>
         [B] Picture Essence Bitstream and Mapping Constraints
             Conformance: mandatory
-            <Component ID: http://vm-1274-user.virt.ch.bbc.co.uk/as/block/PEC_6/>
+            <Component ID: http://www.amwa.tv/projects/rules/01/block/PEC_6/>
             [B] Picture format constraints
                 Conformance: mandatory
-                <Component ID: http://vm-1274-user.virt.ch.bbc.co.uk/as/block/PE_C/>
+                <Component ID: http://www.amwa.tv/projects/rules/01/block/PE_C/>
                 [A] The decoded <Picture Essence> conforms to either of: <Constrained 1080i/29.97> or <Constrained 720p/59.94>.
-                    <Component ID: http://vm-1274-user.virt.ch.bbc.co.uk/as/block/PE_C/artefacts/1.md>
+                    <Component ID: http://www.amwa.tv/projects/rules/01/block/PE_C/artefacts/1.md>
                     [T] Picture Essence
                         A type of <Essence> containing predominantly picture data.
                         <Component ID: http://www.amwa.tv/projects/rules/01/term/Picture%20Essence/>
@@ -556,7 +556,7 @@ An implementation complies with this Specification if it complies with the Compo
                             A bitstream comprising picture, sound or data.
                             <Component ID: http://www.amwa.tv/projects/rules/01/term/Essence/>
                     [B] Constrained 1080i/29.97
-                        <Component ID: http://vm-1274-user.virt.ch.bbc.co.uk/as/block/PE7/>
+                        <Component ID: http://www.amwa.tv/projects/rules/01/block/PE7/>
                         [A] The decoded <Picture Essence> conforms to <SMPTE ST 274:2008> where:
                             
                             * "Image sampling system" is "5"
@@ -564,27 +564,27 @@ An implementation complies with this Specification if it complies with the Compo
                                 + "Y' C'B C'R"
                                 + "8 bits per sample" or "10 bits per sample"
                                 + "4:2:2" or "4:2:0"
-                            <Component ID: http://vm-1274-user.virt.ch.bbc.co.uk/as/block/PE7/artefacts/1.md>
+                            <Component ID: http://www.amwa.tv/projects/rules/01/block/PE7/artefacts/1.md>
                             [R] SMPTE ST 274:2008
-                                <Component ID: http://vm-1274-user.virt.ch.bbc.co.uk/as/external_reference_revision/SMPTE%20ST%20274-2008/>
+                                <Component ID: http://www.amwa.tv/projects/rules/01/external_reference_revision/SMPTE%20ST%20274-2008/>
                         [N] Implementation Notes
-                            <Component ID: http://vm-1274-user.virt.ch.bbc.co.uk/as/note/E64/>
+                            <Component ID: http://www.amwa.tv/projects/rules/01/note/E64/>
                             [A] Image Sampling System 5 in <SMPTE ST 274:2008> is 1080i/29.97.
-                                <Component ID: http://vm-1274-user.virt.ch.bbc.co.uk/as/note/E64/artefacts/1.md>
+                                <Component ID: http://www.amwa.tv/projects/rules/01/note/E64/artefacts/1.md>
                                 [R] SMPTE ST 274:2008
-                                    <Component ID: http://vm-1274-user.virt.ch.bbc.co.uk/as/external_reference_revision/SMPTE%20ST%20274-2008/>
+                                    <Component ID: http://www.amwa.tv/projects/rules/01/external_reference_revision/SMPTE%20ST%20274-2008/>
                         [N] 4:2:0 Subsampling
-                            <Component ID: http://vm-1274-user.virt.ch.bbc.co.uk/as/note/E65/>
+                            <Component ID: http://www.amwa.tv/projects/rules/01/note/E65/>
                             [A] 4:2:0 subsampling is not defined in <SMPTE ST 274:2008>.
                                 
                                 However, there is a _de facto_ "standard" for 4:2:0 subsampling for HD material, which is described in <ITU-T Rec H.264-201402>.
-                                <Component ID: http://vm-1274-user.virt.ch.bbc.co.uk/as/note/E65/artefacts/1.md>
+                                <Component ID: http://www.amwa.tv/projects/rules/01/note/E65/artefacts/1.md>
                                 [R] SMPTE ST 274:2008
-                                    <Component ID: http://vm-1274-user.virt.ch.bbc.co.uk/as/external_reference_revision/SMPTE%20ST%20274-2008/>
+                                    <Component ID: http://www.amwa.tv/projects/rules/01/external_reference_revision/SMPTE%20ST%20274-2008/>
                                 [R] ITU-T Rec H.264-201402
-                                    <Component ID: http://vm-1274-user.virt.ch.bbc.co.uk/as/external_reference_revision/ITU%20T-Rec-H.264-201402/>
+                                    <Component ID: http://www.amwa.tv/projects/rules/01/external_reference_revision/ITU%20T-Rec-H.264-201402/>
                     [B] Constrained 720p/59.94
-                        <Component ID: http://vm-1274-user.virt.ch.bbc.co.uk/as/block/PE8/>
+                        <Component ID: http://www.amwa.tv/projects/rules/01/block/PE8/>
                         [A] The decoded <Picture Essence> conforms to <SMPTE ST 296:2012> where:
                             
                             * "Image sampling system" is "2"
@@ -592,48 +592,48 @@ An implementation complies with this Specification if it complies with the Compo
                                 + "Y' C'B C'R"
                                 + "8 bits per sample" or "10 bits per sample"
                                 + "4:2:2"
-                            <Component ID: http://vm-1274-user.virt.ch.bbc.co.uk/as/block/PE8/artefacts/1.md>
+                            <Component ID: http://www.amwa.tv/projects/rules/01/block/PE8/artefacts/1.md>
                             [R] SMPTE ST 296:2012
-                                <Component ID: http://vm-1274-user.virt.ch.bbc.co.uk/as/external_reference_revision/SMPTE%20ST%20296-2012/>
+                                <Component ID: http://www.amwa.tv/projects/rules/01/external_reference_revision/SMPTE%20ST%20296-2012/>
                         [N] Implementation Notes
-                            <Component ID: http://vm-1274-user.virt.ch.bbc.co.uk/as/note/E66/>
+                            <Component ID: http://www.amwa.tv/projects/rules/01/note/E66/>
                             [A] Image Sampling System 2 in <SMPTE ST 296:2012> is 720p/59.94.
-                                <Component ID: http://vm-1274-user.virt.ch.bbc.co.uk/as/note/E66/artefacts/1.md>
+                                <Component ID: http://www.amwa.tv/projects/rules/01/note/E66/artefacts/1.md>
                                 [R] SMPTE ST 296:2012
-                                    <Component ID: http://vm-1274-user.virt.ch.bbc.co.uk/as/external_reference_revision/SMPTE%20ST%20296-2012/>
+                                    <Component ID: http://www.amwa.tv/projects/rules/01/external_reference_revision/SMPTE%20ST%20296-2012/>
             [B] AVC Coding
                 Conformance: mandatory
-                <Component ID: http://vm-1274-user.virt.ch.bbc.co.uk/as/block/AVC_1/>
+                <Component ID: http://www.amwa.tv/projects/rules/01/block/AVC_1/>
                 [A] The <AVC> bitstream is encoded in accordance with:
                     
                     * <AVC High 4:2:2 constraints> when a "4:2:2 system" is used
                     * <AVC High 10 constraints> when a "4:2:0 system" and "10 bits per sample" is used
                     * <AVC High constraints> when a "4:2:0 system" and "8 bits per sample" is used
-                    <Component ID: http://vm-1274-user.virt.ch.bbc.co.uk/as/block/AVC_1/artefacts/1.md>
+                    <Component ID: http://www.amwa.tv/projects/rules/01/block/AVC_1/artefacts/1.md>
                     [T] AVC
                         Advanced Video Coding. A DCT-based video compression format.
                         <Component ID: http://www.amwa.tv/projects/rules/01/term/AVC/>
                     [B] AVC High 4:2:2 constraints
-                        <Component ID: http://vm-1274-user.virt.ch.bbc.co.uk/as/block/AVC_122/>
+                        <Component ID: http://www.amwa.tv/projects/rules/01/block/AVC_122/>
                         [A] The <AVC> bitstream conforms to the "High 4:2:2 Profile".
-                            <Component ID: http://vm-1274-user.virt.ch.bbc.co.uk/as/block/AVC_122/artefacts/1.md>
+                            <Component ID: http://www.amwa.tv/projects/rules/01/block/AVC_122/artefacts/1.md>
                         [A] In the Picture Essence Descriptor the (ordinarily optional) "Picture Essence Coding" property is present and has the value: `060e2b34.0401010d.04010202.01316001`
-                            <Component ID: http://vm-1274-user.virt.ch.bbc.co.uk/as/block/AVC_122/artefacts/2.md>
+                            <Component ID: http://www.amwa.tv/projects/rules/01/block/AVC_122/artefacts/2.md>
                     [B] AVC High 10 constraints
-                        <Component ID: http://vm-1274-user.virt.ch.bbc.co.uk/as/block/AVC_110/>
+                        <Component ID: http://www.amwa.tv/projects/rules/01/block/AVC_110/>
                         [A] The <AVC> bitstream conforms to the "High 10 Profile".
-                            <Component ID: http://vm-1274-user.virt.ch.bbc.co.uk/as/block/AVC_110/artefacts/1.md>
+                            <Component ID: http://www.amwa.tv/projects/rules/01/block/AVC_110/artefacts/1.md>
                         [A] In the Picture Essence Descriptor the (ordinarily optional) "Picture Essence Coding" property is present and has the value: `060e2b34.0401010d.04010202.01315001`
-                            <Component ID: http://vm-1274-user.virt.ch.bbc.co.uk/as/block/AVC_110/artefacts/2.md>
+                            <Component ID: http://www.amwa.tv/projects/rules/01/block/AVC_110/artefacts/2.md>
                     [B] AVC High constraints
-                        <Component ID: http://vm-1274-user.virt.ch.bbc.co.uk/as/block/AVC_100/>
+                        <Component ID: http://www.amwa.tv/projects/rules/01/block/AVC_100/>
                         [A] The <AVC> bitstream conforms to the "High Profile".
-                            <Component ID: http://vm-1274-user.virt.ch.bbc.co.uk/as/block/AVC_100/artefacts/1.md>
+                            <Component ID: http://www.amwa.tv/projects/rules/01/block/AVC_100/artefacts/1.md>
                         [A] In the Picture Essence Descriptor the (ordinarily optional) "Picture Essence Coding" property is present and has the value: `060e2b34.0401010d.04010202.01314001`
-                            <Component ID: http://vm-1274-user.virt.ch.bbc.co.uk/as/block/AVC_100/artefacts/2.md>
+                            <Component ID: http://www.amwa.tv/projects/rules/01/block/AVC_100/artefacts/2.md>
     [B] Multichannel, 48 kHz Audio
         Conformance: mandatory
-        <Component ID: http://vm-1274-user.virt.ch.bbc.co.uk/as/block/S1/>
+        <Component ID: http://www.amwa.tv/projects/rules/01/block/S1/>
         [B] One Soundfield Group per Sound Track
             Conformance: mandatory
             <Component ID: http://www.amwa.tv/projects/rules/01/block/220b/>
@@ -665,11 +665,11 @@ An implementation complies with this Specification if it complies with the Compo
                     <Component ID: http://www.amwa.tv/projects/rules/01/term/Soundfield%20Group/>
         [B] Coding and Mapping
             Conformance: mandatory
-            <Component ID: http://vm-1274-user.virt.ch.bbc.co.uk/as/block/S_Format_Choice/>
+            <Component ID: http://www.amwa.tv/projects/rules/01/block/S_Format_Choice/>
             [A] The audio coding and mapping is specified by either <24-bit, uncompressed PCM, mapped with ST 382> or <16-bit, AAC, mapped with ST 381-4>.
-                <Component ID: http://vm-1274-user.virt.ch.bbc.co.uk/as/block/S_Format_Choice/artefacts/1.md>
+                <Component ID: http://www.amwa.tv/projects/rules/01/block/S_Format_Choice/artefacts/1.md>
                 [B] 24-bit, uncompressed PCM, mapped with ST 382
-                    <Component ID: http://vm-1274-user.virt.ch.bbc.co.uk/as/block/PCM_WAV/>
+                    <Component ID: http://www.amwa.tv/projects/rules/01/block/PCM_WAV/>
                     [B] Uncompressed 24-bit PCM audio at 48 kHz
                         Conformance: mandatory
                         <Component ID: http://www.amwa.tv/projects/rules/01/block/230/>
@@ -736,12 +736,12 @@ An implementation complies with this Specification if it complies with the Compo
                                 [R] SMPTE ST 382:2007
                                     <Component ID: http://www.amwa.tv/projects/rules/01/external_reference_revision/SMPTE%20ST%20382-2007/>
                 [B] 16-bit, AAC, mapped with ST 381-4
-                    <Component ID: http://vm-1274-user.virt.ch.bbc.co.uk/as/block/AAC_CM/>
+                    <Component ID: http://www.amwa.tv/projects/rules/01/block/AAC_CM/>
                     [B] AAC Compressed 16-bit audio at 48 kHz
                         Conformance: mandatory
-                        <Component ID: http://vm-1274-user.virt.ch.bbc.co.uk/as/block/AAC_C/>
+                        <Component ID: http://www.amwa.tv/projects/rules/01/block/AAC_C/>
                         [A] For each <Audio Channel> the <Sound Essence> is sampled at 48 kHz with 16 bits per sample, and compressed in accordance with the MPEG-2 <AAC> Low Complexity Profile as specified in <ISO/IEC 13818-7>, with an ADTS "wrapper" and a standard MPEG-2 AAC "Channel Configuration".
-                            <Component ID: http://vm-1274-user.virt.ch.bbc.co.uk/as/block/AAC_C/artefacts/1.md>
+                            <Component ID: http://www.amwa.tv/projects/rules/01/block/AAC_C/artefacts/1.md>
                             [T] Audio Channel
                                 A distinct collection of sequenced audio samples that are intended for delivery to a single loudspeaker or other reproduction device.
                                 <Component ID: http://www.amwa.tv/projects/rules/01/term/Audio%20Channel/>
@@ -753,12 +753,12 @@ An implementation complies with this Specification if it complies with the Compo
                                     <Component ID: http://www.amwa.tv/projects/rules/01/term/Essence/>
                             [T] AAC
                                 Advanced Audio Coding. An audio compression format.
-                                <Component ID: http://vm-1274-user.virt.ch.bbc.co.uk/as/term/AAC/>
+                                <Component ID: http://www.amwa.tv/projects/rules/01/term/AAC/>
                     [B] Unconstrained ST 381-4 AAC mapping
                         Conformance: mandatory
-                        <Component ID: http://vm-1274-user.virt.ch.bbc.co.uk/as/block/AAC_M/>
+                        <Component ID: http://www.amwa.tv/projects/rules/01/block/AAC_M/>
                         [A] The <Sound Essence> is mapped to the file using the method described by <SMPTE ST 381-4>.
-                            <Component ID: http://vm-1274-user.virt.ch.bbc.co.uk/as/block/AAC_M/artefacts/1.md>
+                            <Component ID: http://www.amwa.tv/projects/rules/01/block/AAC_M/artefacts/1.md>
                             [T] Sound Essence
                                 A type of <Essence> containing sound data.
                                 <Component ID: http://www.amwa.tv/projects/rules/01/term/Sound%20Essence/>
@@ -767,9 +767,9 @@ An implementation complies with this Specification if it complies with the Compo
                                     <Component ID: http://www.amwa.tv/projects/rules/01/term/Essence/>
         [B] Audio Layout
             Conformance: mandatory
-            <Component ID: http://vm-1274-user.virt.ch.bbc.co.uk/as/block/AL2/>
+            <Component ID: http://www.amwa.tv/projects/rules/01/block/AL2/>
             [A] An <Audio Layout Mode> is used with the properties set as specified by <Audio Layout Mode 0>.
-                <Component ID: http://vm-1274-user.virt.ch.bbc.co.uk/as/block/AL2/artefacts/4.md>
+                <Component ID: http://www.amwa.tv/projects/rules/01/block/AL2/artefacts/4.md>
                 [B] Audio Layout Mode
                     <Component ID: http://www.amwa.tv/projects/rules/01/block/ALM/>
                     [A] The value of <Channel Assignment Label> is a SMPTE Universal Label that is used as the value of the "ChannelAssignment" property in the {WAVEPCMDescriptor}.
@@ -1196,7 +1196,7 @@ An implementation complies with this Specification if it complies with the Compo
                             A property of an Audio Layout Mode
                             <Component ID: http://www.amwa.tv/projects/rules/01/term/Default%20Audio%20Layout/>
             [A] If <Constrained Multichannel Audio Labeling Framework> is used then any device or system that reads, writes or otherwise processes the file supports <Multichannel Audio Labels Collection 0>.
-                <Component ID: http://vm-1274-user.virt.ch.bbc.co.uk/as/block/AL2/artefacts/5.md>
+                <Component ID: http://www.amwa.tv/projects/rules/01/block/AL2/artefacts/5.md>
                 [B] Constrained Multichannel Audio Labeling Framework
                     <Component ID: http://www.amwa.tv/projects/rules/01/block/SN2/>
                     [A] The file uses the Multichannel Audio Labeling Framework specified in <SMPTE ST 377-4:2012>.
@@ -1745,9 +1745,9 @@ An implementation complies with this Specification if it complies with the Compo
                     <Component ID: http://www.amwa.tv/projects/rules/01/term/Group%20of%20Soundfield%20Groups/>
     [B] Embedded XML Documents
         Conformance: mandatory
-        <Component ID: http://vm-1274-user.virt.ch.bbc.co.uk/as/block/DM2/>
+        <Component ID: http://www.amwa.tv/projects/rules/01/block/DM2/>
         [A] An XML document that conforms to <XML DM for Programmes> and/or an XML document that conforms to <Broadcaster-Specific XML DM for Programs> are embedded in the file using <XML Document in Header Metadata Carriage>.
-            <Component ID: http://vm-1274-user.virt.ch.bbc.co.uk/as/block/DM2/artefacts/1.md>
+            <Component ID: http://www.amwa.tv/projects/rules/01/block/DM2/artefacts/1.md>
             [B] XML DM for Programmes
                 <Component ID: http://www.amwa.tv/projects/rules/01/block/XML_DM_Programmes/>
                 [A] The namespace of the document's root element is <Programmes Descriptive Metadata>; the name of the document's root element is "Programmes_DM"; the Media type (MIME type) for the document is "application/xml"
@@ -1757,13 +1757,13 @@ An implementation complies with this Specification if it complies with the Compo
                         [A] Artefact copied to: ../specification_data_files/www.amwa.tv_c0f7b64/block/DM_Programmes/artefacts/DM_Programmes.xsd
                             <Component ID: http://www.amwa.tv/projects/rules/01/block/DM_Programmes/artefacts/DM_Programmes.xsd>
             [B] Broadcaster-Specific XML DM for Programs
-                <Component ID: http://vm-1274-user.virt.ch.bbc.co.uk/as/block/XML_DM_Programs_BS/>
+                <Component ID: http://www.amwa.tv/projects/rules/01/block/XML_DM_Programs_BS/>
                 [A] The Media type (MIME type) for the document is "application/xml"
-                    <Component ID: http://vm-1274-user.virt.ch.bbc.co.uk/as/block/XML_DM_Programs_BS/artefacts/1.md>
+                    <Component ID: http://www.amwa.tv/projects/rules/01/block/XML_DM_Programs_BS/artefacts/1.md>
                 [N] Implementation Notes
-                    <Component ID: http://vm-1274-user.virt.ch.bbc.co.uk/as/note/E75/>
+                    <Component ID: http://www.amwa.tv/projects/rules/01/note/E75/>
                     [A] The namespace and name of the document's root element are not constrained by this Block. The intention is that a broadcaster (or similar organisation) provides an XML Schema to which this document must conform
-                        <Component ID: http://vm-1274-user.virt.ch.bbc.co.uk/as/note/E75/artefacts/1.md>
+                        <Component ID: http://www.amwa.tv/projects/rules/01/note/E75/artefacts/1.md>
             [B] XML Document in Header Metadata Carriage
                 <Component ID: http://www.amwa.tv/projects/rules/01/block/XML0/>
                 [A] The XML document is a complete XML document (with a single root element) that is UTF-8 encoded without a "Byte-Order Mark" (BOM).
@@ -1873,7 +1873,7 @@ An implementation complies with this Specification if it complies with the Compo
                         A crucial amendment to ST 2057 exists and must be read carefully -- it changes the ULs of various keys used in the Standard.
                         <Component ID: http://www.amwa.tv/projects/rules/01/note/E9/artefacts/1.md>
         [A] For each of these embedded XML documents, the "UTF-8 Text-based Set" that carries it is uniquely identified within the `sets_in_scope` by the value of its "Text Data Description" property, where `sets_in_scope` consists of all the instances of "Text-based Object" (as defined by <SMPTE RP 2057:2011>) present in the <Material Package> that have a value of <DM_XML_Document> for the "Text-based Metadata Payload Scheme ID" property.
-            <Component ID: http://vm-1274-user.virt.ch.bbc.co.uk/as/block/DM2/artefacts/2.md>
+            <Component ID: http://www.amwa.tv/projects/rules/01/block/DM2/artefacts/2.md>
             [R] SMPTE RP 2057:2011
                 <Component ID: http://www.amwa.tv/projects/rules/01/external_reference_revision/SMPTE%20RP%202057-2011/>
             [T] Material Package
@@ -2136,9 +2136,9 @@ An implementation complies with this Specification if it complies with the Compo
                 <Component ID: http://www.amwa.tv/projects/rules/01/note/051/artefacts/1.md>
     [B] Specification Identification
         Conformance: mandatory
-        <Component ID: http://vm-1274-user.virt.ch.bbc.co.uk/as/block/SpecID_X9/>
+        <Component ID: http://www.amwa.tv/projects/rules/01/block/SpecID_X9/>
         [A] The <Specification_Identifiers> Element is present in the <Preface> of the <Header Partition>.
-            <Component ID: http://vm-1274-user.virt.ch.bbc.co.uk/as/block/SpecID_X9/artefacts/1.md>
+            <Component ID: http://www.amwa.tv/projects/rules/01/block/SpecID_X9/artefacts/1.md>
             [B] Specification_Identifiers
                 <Component ID: http://www.amwa.tv/projects/rules/01/block/SpecID/>
                 [A] Artefact copied to: ../specification_data_files/www.amwa.tv_c0f7b64/block/SpecID/artefacts/Elements.xml
@@ -2171,11 +2171,11 @@ An implementation complies with this Specification if it complies with the Compo
                         A bitstream comprising picture, sound or data.
                         <Component ID: http://www.amwa.tv/projects/rules/01/term/Essence/>
         [A] The value of this Element includes the Label <Blocks_FF_X9>.
-            <Component ID: http://vm-1274-user.virt.ch.bbc.co.uk/as/block/SpecID_X9/artefacts/2.md>
+            <Component ID: http://www.amwa.tv/projects/rules/01/block/SpecID_X9/artefacts/2.md>
             [B] Blocks_FF_X9
-                <Component ID: http://vm-1274-user.virt.ch.bbc.co.uk/as/block/SpecID_LX9/>
-                [A] Artefact copied to: ../specification_data_files/vm-1274-user.virt.ch.bbc.co.uk_c064c30/block/SpecID_LX9/artefacts/Labels.xml
-                    <Component ID: http://vm-1274-user.virt.ch.bbc.co.uk/as/block/SpecID_LX9/artefacts/Labels.xml>
+                <Component ID: http://www.amwa.tv/projects/rules/01/block/SpecID_LX9/>
+                [A] Artefact copied to: ../specification_data_files/www.amwa.tv_c0f7b64/block/SpecID_LX9/artefacts/Labels.xml
+                    <Component ID: http://www.amwa.tv/projects/rules/01/block/SpecID_LX9/artefacts/Labels.xml>
     [B] Timecode constraints
         Conformance: mandatory
         <Component ID: http://www.amwa.tv/projects/rules/01/block/TT0_r001/>
@@ -2356,25 +2356,25 @@ An implementation complies with this Specification if it complies with the Compo
                         <Component ID: http://www.amwa.tv/projects/rules/01/term/Material%20Package/>
     [B] Closed Captions
         Conformance: optional
-        <Component ID: http://vm-1274-user.virt.ch.bbc.co.uk/as/block/CC3/>
+        <Component ID: http://www.amwa.tv/projects/rules/01/block/CC3/>
         [A] <Caption Distribution Packet>s are included in the file using <Closed Captions Carriage>.
-            <Component ID: http://vm-1274-user.virt.ch.bbc.co.uk/as/block/CC3/artefacts/1.md>
+            <Component ID: http://www.amwa.tv/projects/rules/01/block/CC3/artefacts/1.md>
             [T] Caption Distribution Packet
                 A data format designed to carry (among other things) the captions data defined by <CTA-708-E>.
-                <Component ID: http://vm-1274-user.virt.ch.bbc.co.uk/as/term/Caption%20Distribution%20Packet/>
+                <Component ID: http://www.amwa.tv/projects/rules/01/term/Caption%20Distribution%20Packet/>
                 [R] CTA-708-E
-                    <Component ID: http://vm-1274-user.virt.ch.bbc.co.uk/as/external_reference_revision/CTA-708-E/>
+                    <Component ID: http://www.amwa.tv/projects/rules/01/external_reference_revision/CTA-708-E/>
             [B] Closed Captions Carriage
-                <Component ID: http://vm-1274-user.virt.ch.bbc.co.uk/as/block/CCC_FI/>
+                <Component ID: http://www.amwa.tv/projects/rules/01/block/CCC_FI/>
                 [A] The mapping of <Caption Distribution Packet>s into <VANC Data Packet>s conforms to <SMPTE ST 334-1:2015>.
-                    <Component ID: http://vm-1274-user.virt.ch.bbc.co.uk/as/block/CCC_FI/artefacts/1.md>
+                    <Component ID: http://www.amwa.tv/projects/rules/01/block/CCC_FI/artefacts/1.md>
                     [T] VANC Data Packet
                         An ancillary data packet in the vertical ancillary data space (VANC).
                         <Component ID: http://www.amwa.tv/projects/rules/01/term/VANC%20Data%20Packet/>
                     [R] SMPTE ST 334-1:2015
-                        <Component ID: http://vm-1274-user.virt.ch.bbc.co.uk/as/external_reference_revision/SMPTE%20ST%20334-1-2015/>
+                        <Component ID: http://www.amwa.tv/projects/rules/01/external_reference_revision/SMPTE%20ST%20334-1-2015/>
                 [A] The mapping of <VANC Data Packet>s into <ANC Frame Element>s is as specified in <Constrained Ancillary Data Mapping>.
-                    <Component ID: http://vm-1274-user.virt.ch.bbc.co.uk/as/block/CCC_FI/artefacts/2.md>
+                    <Component ID: http://www.amwa.tv/projects/rules/01/block/CCC_FI/artefacts/2.md>
                     [T] VANC Data Packet
                         An ancillary data packet in the vertical ancillary data space (VANC).
                         <Component ID: http://www.amwa.tv/projects/rules/01/term/VANC%20Data%20Packet/>
@@ -2388,9 +2388,9 @@ An implementation complies with this Specification if it complies with the Compo
                                 MXF data structure used to describe the content structure.
                                 <Component ID: http://www.amwa.tv/projects/rules/01/term/Track/>
                     [B] Constrained Ancillary Data Mapping
-                        <Component ID: http://vm-1274-user.virt.ch.bbc.co.uk/as/block/CADM_FI/>
+                        <Component ID: http://www.amwa.tv/projects/rules/01/block/CADM_FI/>
                         [A] The mapping of <VANC Data Packet>s into <ANC Frame Element>s is as specified in <SMPTE ST 436-1:2013> where "Payload Sample Coding" is "8-bit luma samples" (04h) and "Wrapping Type" is: "VANC Field 1" (02h) or "VANC Field 2" (03h) for both interlaced and progressive <Picture Essence>.
-                            <Component ID: http://vm-1274-user.virt.ch.bbc.co.uk/as/block/CADM_FI/artefacts/1.md>
+                            <Component ID: http://www.amwa.tv/projects/rules/01/block/CADM_FI/artefacts/1.md>
                             [R] SMPTE ST 436-1:2013
                                 <Component ID: http://www.amwa.tv/projects/rules/01/external_reference_revision/SMPTE%20ST%20436-1-2013/>
                             [T] Picture Essence
@@ -2400,9 +2400,9 @@ An implementation complies with this Specification if it complies with the Compo
                                     A bitstream comprising picture, sound or data.
                                     <Component ID: http://www.amwa.tv/projects/rules/01/term/Essence/>
                         [N] Field Wrapping
-                            <Component ID: http://vm-1274-user.virt.ch.bbc.co.uk/as/note/E77/>
+                            <Component ID: http://www.amwa.tv/projects/rules/01/note/E77/>
                             [A] <CTA-608> requires that <Caption Distribution Packet>s are marked as Field 1 or Field 2 for proper assignment for services CC 1-4, XDS and Text, even if the <Picture Essence> is progressive scanned, and in the case of 59.94 Progressive marked "VANC Frame", decoders might have to infer this information by examination of the caption data itself. Therefore, the "Wrapping Type" needs to be "VANC Field 1" or "VANC Field 2" in all cases for consistency of the <SMPTE ST 436-1> embedded line numbers.
-                                <Component ID: http://vm-1274-user.virt.ch.bbc.co.uk/as/note/E77/artefacts/1.md>
+                                <Component ID: http://www.amwa.tv/projects/rules/01/note/E77/artefacts/1.md>
                                 [T] Picture Essence
                                     A type of <Essence> containing predominantly picture data.
                                     <Component ID: http://www.amwa.tv/projects/rules/01/term/Picture%20Essence/>
@@ -2410,7 +2410,7 @@ An implementation complies with this Specification if it complies with the Compo
                                         A bitstream comprising picture, sound or data.
                                         <Component ID: http://www.amwa.tv/projects/rules/01/term/Essence/>
                 [N] Implementation Notes
-                    <Component ID: http://vm-1274-user.virt.ch.bbc.co.uk/as/note/E62/>
+                    <Component ID: http://www.amwa.tv/projects/rules/01/note/E62/>
                     [A] # DID and SDID values
                         
                         <VANC Data Packet>s that are carrying <Caption Distribution Packet>s will have a DID value of 61h and a SDID value of 01h.
@@ -2418,7 +2418,7 @@ An implementation complies with this Specification if it complies with the Compo
                         # Other data being carried in the <ANC Frame Element>
                         
                         The <ANC Frame Element> can also contain HANC Data Packets and other <VANC Data Packet>s in addition to those carrying <Caption Distribution Packet>s. Irrespective of what data is carried in the <ANC Frame Element>, there is only ever one <Track> (in each of the <Material Package> and Top-Level File Package), one Data Element, and one associated Essence Descriptor in the MXF file.
-                        <Component ID: http://vm-1274-user.virt.ch.bbc.co.uk/as/note/E62/artefacts/1.md>
+                        <Component ID: http://www.amwa.tv/projects/rules/01/note/E62/artefacts/1.md>
                         [T] VANC Data Packet
                             An ancillary data packet in the vertical ancillary data space (VANC).
                             <Component ID: http://www.amwa.tv/projects/rules/01/term/VANC%20Data%20Packet/>
@@ -2443,7 +2443,7 @@ An implementation complies with this Specification if it complies with the Compo
             The stated constraints mean that the <Essence Container Label> used to identify the <Picture Essence> mapping is always urn:smpte:ul:060e2b34.0401010a.0d010301.02106001 (MXFGCAVCByteStreamWithVideoStream0SIDFrameWrapped)
             <Component ID: http://www.amwa.tv/projects/rules/01/note/implementation4/artefacts/implementation.md>
     [N] Audio Layout Modes summary
-        <Component ID: http://vm-1274-user.virt.ch.bbc.co.uk/as/note/E67/>
+        <Component ID: http://www.amwa.tv/projects/rules/01/note/E67/>
         [A] A summary of the {Audio Layout Mode}s available in this Specification is in the table below. Note that every MXF file must use one of the listed modes.
             
             In all defined modes there can be between 0 and 127 (inclusive) Sound Tracks in the MXF file.
@@ -2451,7 +2451,7 @@ An implementation complies with this Specification if it complies with the Compo
             Mode Name           | "Channel Assignment Label"                                                 | "MCA Labeling Present"  |     "Default Audio Layout"
             ------------------- | -------------------------------------------------------------------------- | ----------------------- | ------------------------------
             Audio Layout Mode 0 | ConstrainedMultichannelAudioLabelingFramework                              |          true           | **NOT SET** (no assumptions can be made)
-            <Component ID: http://vm-1274-user.virt.ch.bbc.co.uk/as/note/E67/artefacts/1.md>
+            <Component ID: http://www.amwa.tv/projects/rules/01/note/E67/artefacts/1.md>
 
 
 

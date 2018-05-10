@@ -1,4 +1,4 @@
-# **[Work In Progress]** AS-11 X9 (MXF Program Contribution - NABA DPP HD (AVC))
+# **[Proposed Specification]** AS-11 X9 (MXF Program Contribution - NABA DPP HD (AVC))
 
 |*Important links*| |
 |-----------------|-|
@@ -151,7 +151,7 @@ An implementation complies with this Specification if it complies with the Compo
                             
                             This Block places no constraint on Index Table Repetition. For example, a complete Index Table could additionally be included somewhere in the file if required.
                 [N] Application to CBE Essence
-                    [A] While these constraints are designed for use with Varible Bytes per Element (VBE) Essence, it is possible to apply them to Constant Bytes per Element (CBE) Essence. There are more efficient ways to deal with CBE Essence, however.
+                    [A] While these constraints are designed for use with Variable Bytes per Element (VBE) Essence, it is possible to apply them to Constant Bytes per Element (CBE) Essence. There are more efficient ways to deal with CBE Essence, however.
             [B] MXF Indexing and Partitioning strategy for CBE Essence
                 [B] Index precedes Essence
                     Conformance: mandatory
@@ -499,7 +499,7 @@ An implementation complies with this Specification if it complies with the Compo
                     [A] Artefact copied to: ../specification_data_files/www.amwa.tv_c0f7b64/note/Specification_Identification_E/artefacts/Elements.xml
         [A] The value of this Element includes the Label <Blocks_FF_X9>.
             [B] Blocks_FF_X9
-                [A] Artefact copied to: ../specification_data_files/vm-1274-user.virt.ch.bbc.co.uk_c064c30/block/SpecID_LX9/artefacts/Labels.xml
+                [A] Artefact copied to: ../specification_data_files/www.amwa.tv_c0f7b64/block/SpecID_LX9/artefacts/Labels.xml
     [B] Timecode constraints
         Conformance: mandatory
         [B] Timecode Track Presence
