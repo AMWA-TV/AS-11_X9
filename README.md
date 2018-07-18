@@ -1,4 +1,4 @@
-# **[Proposed Specification]** AS-11 X9 (MXF Program Contribution - NABA DPP HD (AVC))
+# **[Specification]** AS-11 X9 (MXF Program Contribution - NABA DPP HD (AVC))
 
 This repository contains the full details of this AMWA Specification. For the latest version of this repository please refer to [its GitHub project](https://github.com/AMWA-TV/AS-11_X9/).
 
