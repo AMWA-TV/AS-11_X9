@@ -262,7 +262,7 @@ An implementation complies with this Specification if it complies with the Compo
                 [B] 16-bit, AAC, mapped with ST 381-4
                     [B] AAC Compressed 16-bit audio at 48 kHz
                         Conformance: mandatory
-                        [A] For each <Audio Channel> the <Sound Essence> is sampled at 48 kHz with 16 bits per sample, and compressed in accordance with the MPEG-2 <AAC> Low Complexity Profile as specified in <ISO/IEC 13818-7>, with an ADTS "wrapper" and a standard MPEG-2 AAC "Channel Configuration".
+                        [A] For each <Audio Channel> the <Sound Essence> is sampled at 48 kHz with 16 bits per sample, and compressed in accordance with the MPEG-2 <AAC> Low Complexity Profile as specified in <ISO/IEC 13818-7:2006>, with an ADTS "wrapper" and a standard MPEG-2 AAC "Channel Configuration".
                     [B] Constrained ST 381-4 AAC mapping
                         Conformance: mandatory
                         [A] The <Sound Essence> is mapped to the file using the method described by <SMPTE ST 381-4>.

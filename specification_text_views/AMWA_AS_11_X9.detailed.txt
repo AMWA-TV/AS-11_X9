@@ -64,7 +64,7 @@ An implementation complies with this Specification if it complies with the Compo
 # The Specification Blocks Tree
 
 [B] File Format
-    <Component ID: http://www.amwa.tv/projects/rules/01/block/FF_X9_r001/>
+    <Component ID: http://www.amwa.tv/projects/rules/01/block/FF_X9_r002/>
     [B] Core MXF constraints
         Conformance: mandatory
         <Component ID: http://www.amwa.tv/projects/rules/01/block/MXF_Core/>
@@ -633,7 +633,7 @@ An implementation complies with this Specification if it complies with the Compo
                             <Component ID: http://www.amwa.tv/projects/rules/01/block/AVC_100/artefacts/2.md>
     [B] Multichannel, 48 kHz Audio
         Conformance: mandatory
-        <Component ID: http://www.amwa.tv/projects/rules/01/block/S1_r001/>
+        <Component ID: http://www.amwa.tv/projects/rules/01/block/S1_r002/>
         [B] One Soundfield Group per Sound Track
             Conformance: mandatory
             <Component ID: http://www.amwa.tv/projects/rules/01/block/220b/>
@@ -665,9 +665,9 @@ An implementation complies with this Specification if it complies with the Compo
                     <Component ID: http://www.amwa.tv/projects/rules/01/term/Soundfield%20Group/>
         [B] Coding and Mapping
             Conformance: mandatory
-            <Component ID: http://www.amwa.tv/projects/rules/01/block/S_Format_Choice_r001/>
+            <Component ID: http://www.amwa.tv/projects/rules/01/block/S_Format_Choice_r002/>
             [A] The audio coding and mapping is specified by either <24-bit, uncompressed PCM, mapped with ST 382> or <16-bit, AAC, mapped with ST 381-4>.
-                <Component ID: http://www.amwa.tv/projects/rules/01/block/S_Format_Choice_r001/artefacts/1.md>
+                <Component ID: http://www.amwa.tv/projects/rules/01/block/S_Format_Choice_r002/artefacts/1.md>
                 [B] 24-bit, uncompressed PCM, mapped with ST 382
                     <Component ID: http://www.amwa.tv/projects/rules/01/block/PCM_WAV/>
                     [B] Uncompressed 24-bit PCM audio at 48 kHz
@@ -736,12 +736,12 @@ An implementation complies with this Specification if it complies with the Compo
                                 [R] SMPTE ST 382:2007
                                     <Component ID: http://www.amwa.tv/projects/rules/01/external_reference_revision/SMPTE%20ST%20382-2007/>
                 [B] 16-bit, AAC, mapped with ST 381-4
-                    <Component ID: http://www.amwa.tv/projects/rules/01/block/AAC_CM_r001/>
+                    <Component ID: http://www.amwa.tv/projects/rules/01/block/AAC_CM_r002/>
                     [B] AAC Compressed 16-bit audio at 48 kHz
                         Conformance: mandatory
-                        <Component ID: http://www.amwa.tv/projects/rules/01/block/AAC_C/>
-                        [A] For each <Audio Channel> the <Sound Essence> is sampled at 48 kHz with 16 bits per sample, and compressed in accordance with the MPEG-2 <AAC> Low Complexity Profile as specified in <ISO/IEC 13818-7>, with an ADTS "wrapper" and a standard MPEG-2 AAC "Channel Configuration".
-                            <Component ID: http://www.amwa.tv/projects/rules/01/block/AAC_C/artefacts/1.md>
+                        <Component ID: http://www.amwa.tv/projects/rules/01/block/AAC_C_r001/>
+                        [A] For each <Audio Channel> the <Sound Essence> is sampled at 48 kHz with 16 bits per sample, and compressed in accordance with the MPEG-2 <AAC> Low Complexity Profile as specified in <ISO/IEC 13818-7:2006>, with an ADTS "wrapper" and a standard MPEG-2 AAC "Channel Configuration".
+                            <Component ID: http://www.amwa.tv/projects/rules/01/block/AAC_C_r001/artefacts/1.md>
                             [T] Audio Channel
                                 A distinct collection of sequenced audio samples that are intended for delivery to a single loudspeaker or other reproduction device.
                                 <Component ID: http://www.amwa.tv/projects/rules/01/term/Audio%20Channel/>
@@ -754,6 +754,8 @@ An implementation complies with this Specification if it complies with the Compo
                             [T] AAC
                                 Advanced Audio Coding. An audio compression format.
                                 <Component ID: http://www.amwa.tv/projects/rules/01/term/AAC/>
+                            [R] ISO/IEC 13818-7:2006
+                                <Component ID: http://www.amwa.tv/projects/rules/01/external_reference_revision/ISO-IEC%2013818-7-2006/>
                     [B] Constrained ST 381-4 AAC mapping
                         Conformance: mandatory
                         <Component ID: http://www.amwa.tv/projects/rules/01/block/AAC_M_r001/>
