@@ -549,7 +549,7 @@ An implementation complies with this Specification if it complies with the Compo
                     [B] Constrained Ancillary Data Mapping
                         [A] The mapping of <VANC Data Packet>s into <ANC Frame Element>s is as specified in <SMPTE ST 436-1:2013> where "Payload Sample Coding" is "8-bit luma samples" (04h) and "Wrapping Type" is: "VANC Field 1" (02h) or "VANC Field 2" (03h) for both interlaced and progressive <Picture Essence>.
                         [N] Field Wrapping
-                            [A] <CTA-608> requires that <Caption Distribution Packet>s are marked as Field 1 or Field 2 for proper assignment for services CC 1-4, XDS and Text, even if the <Picture Essence> is progressive scanned, and in the case of 59.94 Progressive marked "VANC Frame", decoders might have to infer this information by examination of the caption data itself. Therefore, the "Wrapping Type" needs to be "VANC Field 1" or "VANC Field 2" in all cases for consistency of the <SMPTE ST 436-1> embedded line numbers.
+                            [A] <CTA-608-E> requires that <Caption Distribution Packet>s are marked as Field 1 or Field 2 for proper assignment for services CC 1-4, XDS and Text, even if the <Picture Essence> is progressive scanned, and in the case of 59.94 Progressive marked "VANC Frame", decoders might have to infer this information by examination of the caption data itself. Therefore, the "Wrapping Type" needs to be "VANC Field 1" or "VANC Field 2" in all cases for consistency of the <SMPTE ST 436-1> embedded line numbers.
                 [N] Implementation Notes
                     [A] # DID and SDID values
                         
