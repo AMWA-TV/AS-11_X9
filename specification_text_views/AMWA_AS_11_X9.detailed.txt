@@ -64,7 +64,7 @@ An implementation complies with this Specification if it complies with the Compo
 # The Specification Blocks Tree
 
 [B] File Format
-    <Component ID: http://www.amwa.tv/projects/rules/01/block/FF_X9_r003/>
+    <Component ID: http://www.amwa.tv/projects/rules/01/block/FF_X9_r004/>
     [B] Core MXF constraints
         Conformance: mandatory
         <Component ID: http://www.amwa.tv/projects/rules/01/block/MXF_Core/>
@@ -2407,25 +2407,23 @@ An implementation complies with this Specification if it complies with the Compo
                         <Component ID: http://www.amwa.tv/projects/rules/01/term/Material%20Package/>
     [B] Closed Captions
         Conformance: optional
-        <Component ID: http://www.amwa.tv/projects/rules/01/block/CC3_r001/>
+        <Component ID: http://www.amwa.tv/projects/rules/01/block/CC3_r002/>
         [A] <Caption Distribution Packet>s are included in the file using <Closed Captions Carriage>.
-            <Component ID: http://www.amwa.tv/projects/rules/01/block/CC3_r001/artefacts/1.md>
+            <Component ID: http://www.amwa.tv/projects/rules/01/block/CC3_r002/artefacts/1.md>
             [T] Caption Distribution Packet
-                A data format designed to carry (among other things) the captions data defined by <CTA-708-E>.
-                <Component ID: http://www.amwa.tv/projects/rules/01/term/Caption%20Distribution%20Packet/>
-                [R] CTA-708-E
-                    <Component ID: http://www.amwa.tv/projects/rules/01/external_reference_revision/CTA-708-E/>
+                A data format designed to carry (among other things) the captions data defined by <CTA-708>.
+                <Component ID: http://www.amwa.tv/projects/rules/01/term/Caption%20Distribution%20Packet_r001/>
             [B] Closed Captions Carriage
-                <Component ID: http://www.amwa.tv/projects/rules/01/block/CCC_FI_r001/>
+                <Component ID: http://www.amwa.tv/projects/rules/01/block/CCC_FI_r002/>
                 [A] The mapping of <Caption Distribution Packet>s into <VANC Data Packet>s conforms to <SMPTE ST 334-1:2015>.
-                    <Component ID: http://www.amwa.tv/projects/rules/01/block/CCC_FI_r001/artefacts/1.md>
+                    <Component ID: http://www.amwa.tv/projects/rules/01/block/CCC_FI_r002/artefacts/1.md>
                     [T] VANC Data Packet
                         An ancillary data packet in the vertical ancillary data space (VANC).
                         <Component ID: http://www.amwa.tv/projects/rules/01/term/VANC%20Data%20Packet/>
                     [R] SMPTE ST 334-1:2015
                         <Component ID: http://www.amwa.tv/projects/rules/01/external_reference_revision/SMPTE%20ST%20334-1-2015/>
                 [A] The mapping of <VANC Data Packet>s into <ANC Frame Element>s is as specified in <Constrained Ancillary Data Mapping>.
-                    <Component ID: http://www.amwa.tv/projects/rules/01/block/CCC_FI_r001/artefacts/2.md>
+                    <Component ID: http://www.amwa.tv/projects/rules/01/block/CCC_FI_r002/artefacts/2.md>
                     [T] VANC Data Packet
                         An ancillary data packet in the vertical ancillary data space (VANC).
                         <Component ID: http://www.amwa.tv/projects/rules/01/term/VANC%20Data%20Packet/>
@@ -2439,9 +2437,9 @@ An implementation complies with this Specification if it complies with the Compo
                                 MXF data structure used to describe the content structure.
                                 <Component ID: http://www.amwa.tv/projects/rules/01/term/Track/>
                     [B] Constrained Ancillary Data Mapping
-                        <Component ID: http://www.amwa.tv/projects/rules/01/block/CADM_FI_r001/>
+                        <Component ID: http://www.amwa.tv/projects/rules/01/block/CADM_FI_r002/>
                         [A] The mapping of <VANC Data Packet>s into <ANC Frame Element>s is as specified in <SMPTE ST 436-1:2013> where "Payload Sample Coding" is "8-bit luma samples" (04h) and "Wrapping Type" is: "VANC Field 1" (02h) or "VANC Field 2" (03h) for both interlaced and progressive <Picture Essence>.
-                            <Component ID: http://www.amwa.tv/projects/rules/01/block/CADM_FI_r001/artefacts/1.md>
+                            <Component ID: http://www.amwa.tv/projects/rules/01/block/CADM_FI_r002/artefacts/1.md>
                             [R] SMPTE ST 436-1:2013
                                 <Component ID: http://www.amwa.tv/projects/rules/01/external_reference_revision/SMPTE%20ST%20436-1-2013/>
                             [T] Picture Essence
@@ -2451,9 +2449,9 @@ An implementation complies with this Specification if it complies with the Compo
                                     A bitstream comprising picture, sound or data.
                                     <Component ID: http://www.amwa.tv/projects/rules/01/term/Essence/>
                         [N] Field Wrapping
-                            <Component ID: http://www.amwa.tv/projects/rules/01/note/E77_r001/>
+                            <Component ID: http://www.amwa.tv/projects/rules/01/note/E77_r002/>
                             [A] <CTA-608-E> requires that <Caption Distribution Packet>s are marked as Field 1 or Field 2 for proper assignment for services CC 1-4, XDS and Text, even if the <Picture Essence> is progressive scanned, and in the case of 59.94 Progressive marked "VANC Frame", decoders might have to infer this information by examination of the caption data itself. Therefore, the "Wrapping Type" needs to be "VANC Field 1" or "VANC Field 2" in all cases for consistency of the <SMPTE ST 436-1> embedded line numbers.
-                                <Component ID: http://www.amwa.tv/projects/rules/01/note/E77_r001/artefacts/1.md>
+                                <Component ID: http://www.amwa.tv/projects/rules/01/note/E77_r002/artefacts/1.md>
                                 [R] CTA-608-E
                                     <Component ID: http://www.amwa.tv/projects/rules/01/external_reference_revision/CTA-608-E/>
                                 [T] Picture Essence
@@ -2463,7 +2461,7 @@ An implementation complies with this Specification if it complies with the Compo
                                         A bitstream comprising picture, sound or data.
                                         <Component ID: http://www.amwa.tv/projects/rules/01/term/Essence/>
                 [N] Implementation Notes
-                    <Component ID: http://www.amwa.tv/projects/rules/01/note/E62/>
+                    <Component ID: http://www.amwa.tv/projects/rules/01/note/E62_r001/>
                     [A] # DID and SDID values
                         
                         <VANC Data Packet>s that are carrying <Caption Distribution Packet>s will have a DID value of 61h and a SDID value of 01h.
@@ -2471,7 +2469,7 @@ An implementation complies with this Specification if it complies with the Compo
                         # Other data being carried in the <ANC Frame Element>
                         
                         The <ANC Frame Element> can also contain HANC Data Packets and other <VANC Data Packet>s in addition to those carrying <Caption Distribution Packet>s. Irrespective of what data is carried in the <ANC Frame Element>, there is only ever one <Track> (in each of the <Material Package> and Top-Level File Package), one Data Element, and one associated Essence Descriptor in the MXF file.
-                        <Component ID: http://www.amwa.tv/projects/rules/01/note/E62/artefacts/1.md>
+                        <Component ID: http://www.amwa.tv/projects/rules/01/note/E62_r001/artefacts/1.md>
                         [T] VANC Data Packet
                             An ancillary data packet in the vertical ancillary data space (VANC).
                             <Component ID: http://www.amwa.tv/projects/rules/01/term/VANC%20Data%20Packet/>
