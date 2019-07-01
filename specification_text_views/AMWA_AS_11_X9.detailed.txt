@@ -247,10 +247,10 @@ An implementation complies with this Specification if it complies with the Compo
                             A bitstream comprising picture, sound or data.
                             <Component ID: http://www.amwa.tv/projects/rules/01/term/Essence/>
                     [T] Material Package
-                        An MXF data structure that describe an output timeline of the file.
+                        An MXF data structure that describes an output timeline of the file.
                         <Component ID: http://www.amwa.tv/projects/rules/01/term/Material%20Package/>
                 [T] Material Package
-                    An MXF data structure that describe an output timeline of the file.
+                    An MXF data structure that describes an output timeline of the file.
                     <Component ID: http://www.amwa.tv/projects/rules/01/term/Material%20Package/>
             [N] No division/combination of Audio Channels between Sound Tracks
                 <Component ID: http://www.amwa.tv/projects/rules/01/note/E19/>
@@ -457,7 +457,7 @@ An implementation complies with this Specification if it complies with the Compo
             [A] The <Material Package> contains exactly one <Picture Track>.
                 <Component ID: http://www.amwa.tv/projects/rules/01/block/180/artefacts/1.md>
                 [T] Material Package
-                    An MXF data structure that describe an output timeline of the file.
+                    An MXF data structure that describes an output timeline of the file.
                     <Component ID: http://www.amwa.tv/projects/rules/01/term/Material%20Package/>
                 [T] Picture Track
                     A type of <Essence Track> that references <Picture Essence>.
@@ -1848,7 +1848,7 @@ An implementation complies with this Specification if it complies with the Compo
                                         A bitstream comprising picture, sound or data.
                                         <Component ID: http://www.amwa.tv/projects/rules/01/term/Essence/>
                             [T] Material Package
-                                An MXF data structure that describe an output timeline of the file.
+                                An MXF data structure that describes an output timeline of the file.
                                 <Component ID: http://www.amwa.tv/projects/rules/01/term/Material%20Package/>
                             [T] Sequence
                                 A Structural Metadata Class that is a Subclass of Structural Component.
@@ -1928,7 +1928,7 @@ An implementation complies with this Specification if it complies with the Compo
             [R] SMPTE RP 2057:2011
                 <Component ID: http://www.amwa.tv/projects/rules/01/external_reference_revision/SMPTE%20RP%202057-2011/>
             [T] Material Package
-                An MXF data structure that describe an output timeline of the file.
+                An MXF data structure that describes an output timeline of the file.
                 <Component ID: http://www.amwa.tv/projects/rules/01/term/Material%20Package/>
             [B] DM_XML_Document
                 <Component ID: http://www.amwa.tv/projects/rules/01/block/XMLDMLabel/>
@@ -1951,7 +1951,7 @@ An implementation complies with this Specification if it complies with the Compo
                 then the set / object containing a specific mandated XML document can be uniquely identified by the value of its "Text Data Description" property (this property contains the namespace of the root element of the XML document).
                 <Component ID: http://www.amwa.tv/projects/rules/01/note/E82/artefacts/1.md>
                 [T] Material Package
-                    An MXF data structure that describe an output timeline of the file.
+                    An MXF data structure that describes an output timeline of the file.
                     <Component ID: http://www.amwa.tv/projects/rules/01/term/Material%20Package/>
     [B] AS-11 Segmentation DM (Descriptive Metadata)
         Conformance: mandatory
@@ -2071,7 +2071,7 @@ An implementation complies with this Specification if it complies with the Compo
                                     An annotation of elapsed time along a <Track>.
                                     <Component ID: http://www.amwa.tv/projects/rules/01/term/Timecode/>
                         [T] Material Package
-                            An MXF data structure that describe an output timeline of the file.
+                            An MXF data structure that describes an output timeline of the file.
                             <Component ID: http://www.amwa.tv/projects/rules/01/term/Material%20Package/>
                 [N] Non-Programme Content
                     <Component ID: http://www.amwa.tv/projects/rules/01/note/048/>
@@ -2092,7 +2092,7 @@ An implementation complies with this Specification if it complies with the Compo
                                 MXF data structure used to describe the content structure.
                                 <Component ID: http://www.amwa.tv/projects/rules/01/term/Track/>
                         [T] Material Package
-                            An MXF data structure that describe an output timeline of the file.
+                            An MXF data structure that describes an output timeline of the file.
                             <Component ID: http://www.amwa.tv/projects/rules/01/term/Material%20Package/>
         [A] This <Track> is in the <Material Package>.
             <Component ID: http://www.amwa.tv/projects/rules/01/block/530/artefacts/531.md>
@@ -2100,7 +2100,7 @@ An implementation complies with this Specification if it complies with the Compo
                 MXF data structure used to describe the content structure.
                 <Component ID: http://www.amwa.tv/projects/rules/01/term/Track/>
             [T] Material Package
-                An MXF data structure that describe an output timeline of the file.
+                An MXF data structure that describes an output timeline of the file.
                 <Component ID: http://www.amwa.tv/projects/rules/01/term/Material%20Package/>
         [A] Each <DM Segment> object in the <Track> strongly references an instance of <DM_AS_11_Segmentation>.
             <Component ID: http://www.amwa.tv/projects/rules/01/block/530/artefacts/538.md>
@@ -2236,7 +2236,7 @@ An implementation complies with this Specification if it complies with the Compo
             [A] The <Material Package> contains exactly one <Timecode Track>.
                 <Component ID: http://www.amwa.tv/projects/rules/01/block/280/artefacts/280.md>
                 [T] Material Package
-                    An MXF data structure that describe an output timeline of the file.
+                    An MXF data structure that describes an output timeline of the file.
                     <Component ID: http://www.amwa.tv/projects/rules/01/term/Material%20Package/>
                 [T] Timecode Track
                     An MXF <Track> that stores one or more <Timecode Component>s.
@@ -2272,7 +2272,7 @@ An implementation complies with this Specification if it complies with the Compo
                             An annotation of elapsed time along a <Track>.
                             <Component ID: http://www.amwa.tv/projects/rules/01/term/Timecode/>
                 [T] Material Package
-                    An MXF data structure that describe an output timeline of the file.
+                    An MXF data structure that describes an output timeline of the file.
                     <Component ID: http://www.amwa.tv/projects/rules/01/term/Material%20Package/>
                 [B] Constrained Timecode Track
                     <Component ID: http://www.amwa.tv/projects/rules/01/block/TTC/>
@@ -2351,7 +2351,7 @@ An implementation complies with this Specification if it complies with the Compo
                         MXF data structure used to describe the content structure.
                         <Component ID: http://www.amwa.tv/projects/rules/01/term/Track/>
                 [T] Material Package
-                    An MXF data structure that describe an output timeline of the file.
+                    An MXF data structure that describes an output timeline of the file.
                     <Component ID: http://www.amwa.tv/projects/rules/01/term/Material%20Package/>
             [N] Rational Numbers
                 <Component ID: http://www.amwa.tv/projects/rules/01/note/E69/>
@@ -2381,7 +2381,7 @@ An implementation complies with this Specification if it complies with the Compo
                             An annotation of elapsed time along a <Track>.
                             <Component ID: http://www.amwa.tv/projects/rules/01/term/Timecode/>
                 [T] Material Package
-                    An MXF data structure that describe an output timeline of the file.
+                    An MXF data structure that describes an output timeline of the file.
                     <Component ID: http://www.amwa.tv/projects/rules/01/term/Material%20Package/>
             [N] Implementation Notes
                 <Component ID: http://www.amwa.tv/projects/rules/01/note/022/>
@@ -2403,7 +2403,7 @@ An implementation complies with this Specification if it complies with the Compo
                             An MXF structure that stores <Timecode> information.
                             <Component ID: http://www.amwa.tv/projects/rules/01/term/Timecode%20Component/>
                     [T] Material Package
-                        An MXF data structure that describe an output timeline of the file.
+                        An MXF data structure that describes an output timeline of the file.
                         <Component ID: http://www.amwa.tv/projects/rules/01/term/Material%20Package/>
     [B] Closed Captions
         Conformance: optional
@@ -2486,7 +2486,7 @@ An implementation complies with this Specification if it complies with the Compo
                             MXF data structure used to describe the content structure.
                             <Component ID: http://www.amwa.tv/projects/rules/01/term/Track/>
                         [T] Material Package
-                            An MXF data structure that describe an output timeline of the file.
+                            An MXF data structure that describes an output timeline of the file.
                             <Component ID: http://www.amwa.tv/projects/rules/01/term/Material%20Package/>
     [N] Implementation Notes
         <Component ID: http://www.amwa.tv/projects/rules/01/note/implementation4/>
