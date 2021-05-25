@@ -64,7 +64,7 @@ An implementation complies with this Specification if it complies with the Compo
 # The Specification Blocks Tree
 
 [B] File Format
-    <Component ID: http://www.amwa.tv/projects/rules/01/block/FF_X9_r004/>
+    <Component ID: http://www.amwa.tv/projects/rules/01/block/FF_X9_r005/>
     [B] Core MXF constraints
         Conformance: mandatory
         <Component ID: http://www.amwa.tv/projects/rules/01/block/MXF_Core/>
@@ -633,7 +633,7 @@ An implementation complies with this Specification if it complies with the Compo
                             <Component ID: http://www.amwa.tv/projects/rules/01/block/AVC_100/artefacts/2.md>
     [B] Multichannel, 48 kHz Audio
         Conformance: mandatory
-        <Component ID: http://www.amwa.tv/projects/rules/01/block/S1_r002/>
+        <Component ID: http://www.amwa.tv/projects/rules/01/block/S1_r003/>
         [B] One Soundfield Group per Sound Track
             Conformance: mandatory
             <Component ID: http://www.amwa.tv/projects/rules/01/block/220b/>
@@ -793,9 +793,9 @@ An implementation complies with this Specification if it complies with the Compo
                                         <Component ID: http://www.amwa.tv/projects/rules/01/term/Essence/>
         [B] Audio Layout
             Conformance: mandatory
-            <Component ID: http://www.amwa.tv/projects/rules/01/block/AL2_r001/>
+            <Component ID: http://www.amwa.tv/projects/rules/01/block/AL2_r002/>
             [A] An <Audio Layout Mode> is used with the properties set as specified by <Audio Layout Mode 0>.
-                <Component ID: http://www.amwa.tv/projects/rules/01/block/AL2_r001/artefacts/4.md>
+                <Component ID: http://www.amwa.tv/projects/rules/01/block/AL2_r002/artefacts/4.md>
                 [B] Audio Layout Mode
                     <Component ID: http://www.amwa.tv/projects/rules/01/block/ALM_r001/>
                     [A] The value of <Channel Assignment Label> is a SMPTE Universal Label that is used as the value of the <Sound Essence Descriptor> property that signals channel assignment.
@@ -1247,7 +1247,7 @@ An implementation complies with this Specification if it complies with the Compo
                             A property of an Audio Layout Mode
                             <Component ID: http://www.amwa.tv/projects/rules/01/term/Default%20Audio%20Layout/>
             [A] If <Constrained Multichannel Audio Labeling Framework> is used then any device or system that reads, writes or otherwise processes the file supports <Multichannel Audio Labels Collection 0>.
-                <Component ID: http://www.amwa.tv/projects/rules/01/block/AL2_r001/artefacts/5.md>
+                <Component ID: http://www.amwa.tv/projects/rules/01/block/AL2_r002/artefacts/5.md>
                 [B] Constrained Multichannel Audio Labeling Framework
                     <Component ID: http://www.amwa.tv/projects/rules/01/block/SN2/>
                     [A] The file uses the Multichannel Audio Labeling Framework specified in <SMPTE ST 377-4:2012>.
@@ -1609,9 +1609,9 @@ An implementation complies with this Specification if it complies with the Compo
                                 A collection of one or more <Soundfield Group>s which all have the same program content or the same purpose.
                                 <Component ID: http://www.amwa.tv/projects/rules/01/term/Group%20of%20Soundfield%20Groups/>
                 [B] Multichannel Audio Labels Collection 0
-                    <Component ID: http://www.amwa.tv/projects/rules/01/block/MCAL_Labels_Set_0_r002/>
-                    [A] Artefact copied to: ../specification_data_files/www.amwa.tv_c0f7b64/block/MCAL_Labels_Set_0_r002/artefacts/Labels.xml
-                        <Component ID: http://www.amwa.tv/projects/rules/01/block/MCAL_Labels_Set_0_r002/artefacts/Labels.xml>
+                    <Component ID: http://www.amwa.tv/projects/rules/01/block/MCAL_Labels_Set_0_r003/>
+                    [A] Artefact copied to: ../specification_data_files/www.amwa.tv_c0f7b64/block/MCAL_Labels_Set_0_r003/artefacts/Labels.xml
+                        <Component ID: http://www.amwa.tv/projects/rules/01/block/MCAL_Labels_Set_0_r003/artefacts/Labels.xml>
                     [A] <AudioChannelLabelSubDescriptor>s use the SMPTE Metadata Registers Entries listed here in accordance with this table.
                         
                          SMPTE Metadata Registers Symbol           | MCA Tag Name                  | MCA Tag Symbol
@@ -1624,7 +1624,9 @@ An implementation complies with this Specification if it complies with the Compo
                          `LeftSurroundAudioChannel`                | Left Surround                 | `chLs`
                          `RightSurroundAudioChannel`               | Right Surround                | `chRs`
                          `VisuallyImpairedNarrativeAudioChannel`   | Visually Impaired Narrative   | `chVIN`
-                        <Component ID: http://www.amwa.tv/projects/rules/01/block/MCAL_Labels_Set_0_r002/artefacts/ch.md>
+                        
+                        __⚠__ The MCA Tag Name "Visually Impaired-Narrative" (with a hyphen) is used elsewhere, such as in IMF and D-Cinema.
+                        <Component ID: http://www.amwa.tv/projects/rules/01/block/MCAL_Labels_Set_0_r003/artefacts/ch.md>
                         [T] AudioChannelLabelSubDescriptor
                             A subclass of <MCALabelSubDescriptor> used to describe an <Audio Channel>.
                             <Component ID: http://www.amwa.tv/projects/rules/01/term/AudioChannelLabelSubDescriptor/>
@@ -1641,7 +1643,7 @@ An implementation complies with this Specification if it complies with the Compo
                          `AudioDescriptionStudioSignal`            | AD Studio Signal  | `sgADSS`       | `chVIN`, `chADSSdc`
                          `_51SoundfieldGroup`                      | 5.1               | `sg51`         | `chL`, `chR`, `chC`, `chLFE`, `chLs`, `chRs`
                          `SMPTEST20678StandardStereo`              | Standard Stereo   | `sgST`         | `chL`, `chR`
-                        <Component ID: http://www.amwa.tv/projects/rules/01/block/MCAL_Labels_Set_0_r002/artefacts/sg.md>
+                        <Component ID: http://www.amwa.tv/projects/rules/01/block/MCAL_Labels_Set_0_r003/artefacts/sg.md>
                         [T] SoundfieldGroupLabelSubDescriptor
                             A subclass of <MCALabelSubDescriptor> used to describe a <Soundfield Group>.
                             <Component ID: http://www.amwa.tv/projects/rules/01/term/SoundfieldGroupLabelSubDescriptor/>
@@ -1664,7 +1666,7 @@ An implementation complies with this Specification if it complies with the Compo
                          `AudioDescriptionProgramMix`              | Audio Description Program Mix   | `ggADPgMx`
                          `SMPTEST20678MainProgram`                 | Main Program                    | `ggMPg`
                          `UnusedAudio`                             | Unused Audio                    | `ggUnAu`
-                        <Component ID: http://www.amwa.tv/projects/rules/01/block/MCAL_Labels_Set_0_r002/artefacts/gg.md>
+                        <Component ID: http://www.amwa.tv/projects/rules/01/block/MCAL_Labels_Set_0_r003/artefacts/gg.md>
                         [T] GroupOfSoundfieldGroupsLabelSubDescriptor
                             A subclass of <MCALabelSubDescriptor> used to describe a <Group of Soundfield Groups>.
                             <Component ID: http://www.amwa.tv/projects/rules/01/term/GroupOfSoundfieldGroupsLabelSubDescriptor/>
