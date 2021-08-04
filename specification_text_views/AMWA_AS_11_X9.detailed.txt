@@ -1,4 +1,4 @@
-# **[Specification]** AS-11 X9 (MXF Program Contribution - NABA DPP HD (AVC))
+# **[Specification (Published)]** AS-11 X9 (MXF Program Contribution - NABA DPP HD (AVC))
 
 |*Important links*| |
 |-----------------|-|
